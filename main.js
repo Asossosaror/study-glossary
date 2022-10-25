@@ -7,6 +7,8 @@ function openPage(url){
 }
 
 function createPair(){
+    newHeadline = document.getElementById('textinput_headline');
+    console.log(newHeadline.value);
     newWord = document.getElementById('textinput_newword');
     console.log(newWord.value);
     newExplanation = document.getElementById('textinput_explanation');
@@ -20,11 +22,7 @@ function createPair(){
     }
 }
 
-function finishSet(){
-
-}
-
-function test(){
+function testFunction(){
     document.getElementById("test").innerHTML = JSON.stringify(localStorage.getItem("obj_sets"));
 }
 
