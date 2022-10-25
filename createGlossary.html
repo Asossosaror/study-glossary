@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>AG Glossary</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
 </head>
 <body>
     <header>
@@ -10,12 +12,15 @@
         <p>On this page, you can create sets of words that you want to learn.</p>
     </header>
     <div>
-        <br><label for="textinput_newword">New Word: </label>
-        <input id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
-        <label for="textinput_explanation">Explanation: </label>
-        <input id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
-        <button type="submit">Submit pair</button><br>
-        <button type="submit">Finish studyset</button>
+        <form>
+            <br><label for="textinput_newword">New Word: </label>
+            <input id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
+            <label for="textinput_explanation">Explanation: </label>
+            <input id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
+            <button type="submit" onclick="createPair()">Submit pair</button><br>
+            <button type="submit">Finish studyset</button>
+            <button type="reset" onclick="resetStorage()">Reset storage</button>
+        </form>
     </div>
 </body>
 </html>
