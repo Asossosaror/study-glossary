@@ -17,8 +17,15 @@ function createPair(){
         console.log(obj_sets);
         obj_sets_serialized = JSON.stringify(obj_sets);
         localStorage.setItem("obj_sets", obj_sets_serialized);
-        console.log(obj_sets['gg']);
     }
+}
+
+function finishSet(){
+
+}
+
+function test(){
+    document.getElementById("test").innerHTML = JSON.stringify(localStorage.getItem("obj_sets"));
 }
 
 function resetStorage(){

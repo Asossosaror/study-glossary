@@ -9,16 +9,18 @@
 <body>
     <header>
         <h1>AG Glossary</h1>
-        <p>On this page, you can create sets of words that you want to learn.</p>
+        <p id="test">On this page, you can create sets of words that you want to learn.</p>
     </header>
     <div>
         <form>
+            <br><label for="textinput_headline">Headline: </label>
+            <input id="textinput_headline" type="text" placeholder="Headline for the set"><br>
             <br><label for="textinput_newword">New Word: </label>
             <input id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
             <label for="textinput_explanation">Explanation: </label>
             <input id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
             <button type="submit" onclick="createPair()">Submit pair</button><br>
-            <button type="submit">Finish studyset</button>
+            <button type="button" onclick="test()">Finish studyset</button>
             <button type="reset" onclick="resetStorage()">Reset storage</button>
         </form>
     </div>
