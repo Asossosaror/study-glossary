@@ -3,6 +3,12 @@ var newWord = '';
 var newExplanation = '';
 var obj_sets = {};
 var obj_allSets = {};
+var var_newWord_explanation_class = document.getElementsByClassName("newWord_explanation_class");
+
+var_newWord_explanation_class.array.forEach(element => {
+    element.style.visibility = 'hidden';
+});
+
 
 function openPage(url){
     document.location.href = url;
@@ -10,10 +16,16 @@ function openPage(url){
 
 function createPair(){
     if(headline == ''){
+        //Store the headline.
         newHeadline = document.getElementById('textinput_headline');
         console.log(newHeadline.value);
         localStorage.setItem("headline", headline.value);
-        // Add code that makes the label and input field for the headline disappear.
+        //Hide the headline input field.
+        document.getElementById("textinput_headline").style.visibility = 'hidden';
+        document.getElementById("textinput_headline_label").style.visibility = 'hidden';
+        //Show the input fields for new wrods and explanations.
+        document.getElementsByClassName("newWord_explanation_class").style.visibility = 'visible';
+        document.getElementById("submitButton").value = 'Submit pair';
     }
     newWord = document.getElementById('textinput_newword');
     console.log(newWord.value);

@@ -13,13 +13,13 @@
     </header>
     <div>
         <form>
-            <br><label for="textinput_headline">Headline: </label>
+            <br><label for="textinput_headline" id="textinput_headline_label">Headline: </label>
             <input id="textinput_headline" type="text" placeholder="Headline for the set"><br>
-            <br><label for="textinput_newword">New Word: </label>
-            <input id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
-            <label for="textinput_explanation">Explanation: </label>
-            <input id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
-            <button type="submit" onclick="createPair()">Submit pair</button><br>
+            <br><label class="newWord_explanation_class" for="textinput_newword">New Word: </label>
+            <input class="newWord_explanation_class" id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
+            <label class="newWord_explanation_class" for="textinput_explanation">Explanation: </label>
+            <input class="newWord_explanation_class" id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
+            <button id="submitButton" type="submit" onclick="createPair()">Submit headline</button><br><br>
             <button type="button" onclick="createSet()">Finish studyset</button>
             <button type="reset" onclick="resetStorage()">Reset storage</button>
         </form>
