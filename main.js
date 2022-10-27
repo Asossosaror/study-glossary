@@ -1,31 +1,40 @@
 var headline = '';
+var headline_submitted = false;
 var newWord = '';
 var newExplanation = '';
 var obj_sets = {};
 var obj_allSets = {};
 var var_newWord_explanation_class = document.getElementsByClassName("newWord_explanation_class");
 
-var_newWord_explanation_class.array.forEach(element => {
-    element.style.visibility = 'hidden';
+//This code will be executed last.
+$(document).ready(function() {
+    $("#submitButton").click(function() {
+        if(headline_submitted = false){
+            $(".newWord_explanation_class").show();
+            $(".headline_class").hide();
+            $('#submitButton').text("Submit pair");
+            $("#headline-form").submit();
+        }
+        if(headline_submitted = true){
+            $("#word-form").submit();
+        }
+    });
 });
-
 
 function openPage(url){
     document.location.href = url;
 }
 
-function createPair(){
+function createPair() {
     if(headline == ''){
         //Store the headline.
         newHeadline = document.getElementById('textinput_headline');
         console.log(newHeadline.value);
         localStorage.setItem("headline", headline.value);
         //Hide the headline input field.
-        document.getElementById("textinput_headline").style.visibility = 'hidden';
-        document.getElementById("textinput_headline_label").style.visibility = 'hidden';
-        //Show the input fields for new wrods and explanations.
-        document.getElementsByClassName("newWord_explanation_class").style.visibility = 'visible';
-        document.getElementById("submitButton").value = 'Submit pair';
+        $('#textinput_headline').hide();
+        $('#textinput_headline_label').hide();
+        //Show the input fields for new words and explanations.
     }
     newWord = document.getElementById('textinput_newword');
     console.log(newWord.value);
@@ -65,10 +74,6 @@ function createSet(){
             }
         }
     }
-}
-
-function testFunction(){
-    document.getElementById("test").innerHTML = JSON.stringify(localStorage.getItem("obj_sets"));
 }
 
 function resetStorage(){

@@ -4,6 +4,9 @@
 <head>
     <title>AG Glossary</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </head>
 <body>
@@ -12,14 +15,16 @@
         <p id="test">On this page, you can create sets of words that you want to learn.</p>
     </header>
     <div>
-        <form>
-            <br><label for="textinput_headline" id="textinput_headline_label">Headline: </label>
-            <input id="textinput_headline" type="text" placeholder="Headline for the set"><br>
-            <br><label class="newWord_explanation_class" for="textinput_newword">New Word: </label>
-            <input class="newWord_explanation_class" id="textinput_newword" type="text" placeholder="Type the new word here"><br><br>
+        <form id="headline-form">
+            <label class="headline_class" for="textinput_headline" id="textinput_headline_label">Headline: </label>
+            <input class="headline_class" id="textinput_headline" type="text" placeholder="Headline for the set">
+        </form>
+        <form id="word-form"></form>
+            <label class="newWord_explanation_class" for="textinput_newword">New Word: </label>
+            <input class="newWord_explanation_class" id="textinput_newword" type="text" placeholder="Type the new word here">
             <label class="newWord_explanation_class" for="textinput_explanation">Explanation: </label>
-            <input class="newWord_explanation_class" id="textinput_explanation" type="text" placeholder="Explain the word here"><br><br>
-            <button id="submitButton" type="submit" onclick="createPair()">Submit headline</button><br><br>
+            <input class="newWord_explanation_class" id="textinput_explanation" type="text" placeholder="Explain the word here">
+            <button id="submitButton" type="button" onclick="createPair()">Submit headline</button><br><br>
             <button type="button" onclick="createSet()">Finish studyset</button>
             <button type="reset" onclick="resetStorage()">Reset storage</button>
         </form>
