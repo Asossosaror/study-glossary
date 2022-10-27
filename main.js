@@ -14,15 +14,15 @@ $(document).ready(function() {
         $(".newWord_explanation_class").show();
     }
     $("#submitButton").click(function() {
+        $(".textinput").val("");
         if(headline_submitMode = false){
-            $("#word-form").submit();
+            $(".newWord_explanation_class").show();
         }
         if(headline_submitMode = true){
             $(".newWord_explanation_class").show();
             $(".headline_class").hide();
             $('#submitButton').text("Submit pair");
             headline_submitMode = false;
-            $("#headline-form").submit();
         }
     });
 });
@@ -56,34 +56,31 @@ function createPair() {
 }
 
 function createSet(){
-    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    obj_allSets = localStorage.getItem("obj_allSets") || {};
     obj_sets = JSON.parse(localStorage.getItem("obj_sets"));
     headline = localStorage.getItem("headline");
-    countObj_allSets = 0;
-    for (const property in obj_allSets){
-        countObj_allSets += 1;
-    }
-    if(obj_sets != {}){
-        console.log(typeof(obj_allSets));
-        if(obj_allSets == {}){
+
+    if(obj_sets === {}){
+        alert("You haven't submitted any words. Submit words to create a studyset.");
+    } else {
+        if(headline in Object.keys(obj_allSets)) {
+            alert("There is already a headline like the one you've submitted.")
+        } else {
             obj_allSets[headline] = obj_sets;
-            JSON.stringify(localStorage.setItem("obj_allSets", obj_allSets));
-            console.log(JSON.parse(localStorage.getItem("obj_allSets")));
-            localStorage.setItem("headline", '');
-        }
-        else{
-            if(headline in obj_allSets == false){
-                obj_allSets[headline] = obj_sets;
-                JSON.stringify(localStorage.setItem("obj_allSets", obj_allSets));
-                console.log(JSON.parse(localStorage.getItem("obj_allSets")));
-                localStorage.setItem("headline", '');
-            }
+            console.log(Object.keys(obj_allSets));
+            console.log(obj_sets);
+            obj_allSets_serialized = JSON.stringify(obj_allSets);
+            localStorage.setItem("obj_allSets", obj_allSets_serialized);
         }
     }
 }
 
+
 function resetStorage(){
     obj_sets_serialized = JSON.stringify({});
+    obj_allSets_serialized = JSON.stringify({});
     localStorage.setItem("obj_sets", obj_sets_serialized);
+    localStorage.setItem("obj_allSets", obj_allSets_serialized)
     console.log(JSON.parse(localStorage.getItem("obj_sets")));
+    console.log(JSON.parse(localStorage.getItem("obj_allSets")));
 }
