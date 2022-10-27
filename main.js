@@ -1,5 +1,5 @@
 var headline = '';
-var headline_submitted = false;
+var headline_submitMode = true;
 var newWord = '';
 var newExplanation = '';
 var obj_sets = {};
@@ -8,15 +8,21 @@ var var_newWord_explanation_class = document.getElementsByClassName("newWord_exp
 
 //This code will be executed last.
 $(document).ready(function() {
+    if(headline_submitMode = true){
+        $(".newWord_explanation_class").hide();
+    } else {
+        $(".newWord_explanation_class").show();
+    }
     $("#submitButton").click(function() {
-        if(headline_submitted = false){
+        if(headline_submitMode = false){
+            $("#word-form").submit();
+        }
+        if(headline_submitMode = true){
             $(".newWord_explanation_class").show();
             $(".headline_class").hide();
             $('#submitButton').text("Submit pair");
+            headline_submitMode = false;
             $("#headline-form").submit();
-        }
-        if(headline_submitted = true){
-            $("#word-form").submit();
         }
     });
 });
