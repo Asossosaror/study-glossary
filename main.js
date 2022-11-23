@@ -14,8 +14,9 @@ document.addEventListener("keydown", function(event){
         event.preventDefault();
         if(window.location.href == 'https://asossosaror.github.io/study-glossary/createHeadline.html'){
             createHeadline();
-        } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
-            createPair();
+        } 
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
+            document.getElementById('submitPairBtn').click();
         }
     }
 });
