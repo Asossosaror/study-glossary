@@ -21,7 +21,11 @@ function createHeadline() {
     if(Object.keys(obj_allSets).includes(newHeadline.value) == true){
         alert("There is already a headline like the one you've submitted. Please choose another one.")
     }
+    if(newHeadline.value == ""){
+        alert("Please submit a headline to create your set.");
+    }
     document.getElementById('textinput_headline').value = "";
+    
 }
 
 function createPair() {
@@ -71,4 +75,14 @@ function resetStorage(){
     localStorage.setItem("obj_allSets", obj_allSets_serialized)
     console.log(JSON.parse(localStorage.getItem("obj_sets")));
     console.log(JSON.parse(localStorage.getItem("obj_allSets")));
+}
+
+function testing(){
+    document.getElementById('testp2').innerHTML = localStorage.getItem("obj_allSets");
+}
+
+function another(){
+    var cracked = JSON.parse(localStorage.getItem("obj_allSets"));
+    document.getElementById("testp2").innerHTML = Object.keys(cracked);
+    console.log(Object.keys(cracked).includes("blabla"));
 }
