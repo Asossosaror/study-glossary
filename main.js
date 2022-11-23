@@ -12,7 +12,11 @@ function openPage(url){
 document.addEventListener("keydown", function(event){
     if(event.key == "Enter"){
         event.preventDefault();
-        createHeadline();
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/createHeadline.html'){
+            createHeadline();
+        } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
+            createPair();
+        }
     }
 });
 
