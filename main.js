@@ -9,6 +9,13 @@ function openPage(url){
     document.location.href = url;
 }
 
+document.addEventListener("keydown", function(event){
+    if(event.key == "Enter"){
+        event.preventDefault();
+        createHeadline();
+    }
+});
+
 function createHeadline() {
     newHeadline = document.getElementById('textinput_headline');
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));

@@ -24,3 +24,17 @@ function createHeadline() {
     }
     document.getElementById('textinput_headline').value = "";
 }
+
+
+
+
+var submitHeadlineBtn = document.getElementById("submitHeadlineBtn");
+if(submitHeadlineBtn){
+    submitHeadlineBtn.addEventListener('keypress', function(a) {
+        if(a.key === "Enter"){
+            submitHeadlineBtn.click();
+        }
+    });
+} else {
+    console.log('It is somehow null');
+}
