@@ -17,7 +17,7 @@ body {
 }
 
 .text-input {
-    margin: 5px;
+    margin: 3px 5px 5px 0px;
     width: 35%;
     height: 25px;
     display: block;
@@ -27,6 +27,6 @@ body {
     background-color: rgb(226, 241, 51);
     border-color: rgb(226, 241, 51 );
     padding: 4px 10px;
-    margin: 5px;
+    margin: 3px 5px 5px 0px;
     text-align: left;
 }
