@@ -21,7 +21,7 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-document.addEventListener("load", function(loading){
+document.addEventListener("load", (event) => {
     if(document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html'){
         onPageLoad_studyGlossary();
     }
