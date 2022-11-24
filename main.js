@@ -101,6 +101,8 @@ function randomSet(){
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
     openPage('https://asossosaror.github.io/study-glossary/studyGlossary.html');
+    alert("You've gotten to another page.");
+    document.getElementById("test-p-object").innerHTML = set_to_study;
 }
 
 function testing(){
