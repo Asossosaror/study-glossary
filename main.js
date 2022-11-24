@@ -37,7 +37,6 @@ function createHeadline() {
         alert("Please submit a headline to create your set.");
     }
     document.getElementById('textinput_headline').value = "";
-    document.getElementById("textinput_newword").focus();
 }
 
 function createPair() {
@@ -53,6 +52,7 @@ function createPair() {
         localStorage.setItem("obj_sets", obj_sets_serialized);
         console.log(JSON.parse(localStorage.getItem("obj_sets")));
     }
+    document.getElementById("textinput_newword").focus();
 }
 
 function createSet(){
