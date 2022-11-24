@@ -4,6 +4,7 @@ var newExplanation = '';
 var obj_sets = {};
 var obj_allSets = {};
 var var_newWord_explanation_class = document.getElementsByClassName("newWord_explanation_class");
+var words_done = 0;
 
 function openPage(url){
     document.location.href = url;
@@ -17,6 +18,9 @@ document.addEventListener("keydown", function(event){
         } 
         if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
             document.getElementById('submitPairBtn').click();
+        }
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html?'){
+            document.getElementById("study-submit-btn").click();
         }
     }
 });
@@ -110,11 +114,25 @@ function onPageLoad_studyGlossary(){
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         alert("You've gotten to another page.");
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-        random_headline = localStorage.getItem("random_headline");
-        var entries_array = Object.entries(obj_allSets[random_headline]);
+        study_headline = localStorage.getItem("random_headline");
+        var entries_array = Object.entries(obj_allSets[study_headline]);
         console.log(entries_array);
-        document.getElementById("test-p-object").innerHTML = entries_array[0][0];
-        console.log(entries_array[0][0]);
+        var yourWord = entries_array[words_done][0];
+        document.getElementById("your-word").innerHTML = yourWord;
+        console.log(yourWord);
+        yourWord_serialized = JSON.stringify(yourWord);
+        localStorage.setItem("yourWord", yourWord_serialized);
+        document.getElementById("your-headline").innerHTML = study_headline;
+    }
+}
+
+function submitAnswer() {
+    words_done = words_done + 1;
+    var yourAnswer = document.getElementById("study-submit-btn").value;
+    console.log(yourAnswer);
+    yourWord = JSON.parse(localStorage.getItem("yourWord"));
+    if(yourAnswer == yourWord){
+        document.getElementById("your-answer-input").style.backgroundColor = "green";
     }
 }
 

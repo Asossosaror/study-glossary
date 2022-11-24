@@ -41,3 +41,7 @@ body {
     left: 0;
     box-shadow: 0 0 5px 1px rgb(255, 104, 64);
 }
+
+#your-word {
+    font-weight: bold;
+}
