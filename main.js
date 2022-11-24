@@ -21,6 +21,12 @@ document.addEventListener("keydown", function(event){
     }
 });
 
+document.addEventListener("load", function(loading){
+    if(document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html'){
+        onPageLoad_studyGlossary();
+    }
+});
+
 function createHeadline() {
     newHeadline = document.getElementById('textinput_headline');
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
@@ -89,7 +95,7 @@ function resetStorage(){
     console.log(JSON.parse(localStorage.getItem("obj_allSets")));
 }
 
-function randomSet(){
+function chooseRandomSet(){
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets")) || {};
     if(obj_allSets == {}){
         alert("Please submit a set of words to start practicing.");
@@ -100,12 +106,14 @@ function randomSet(){
     console.log(random_headline);
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
+    localStorage.setItem("random_headline", random_headline);
     openPage('https://asossosaror.github.io/study-glossary/studyGlossary.html');
-    window.onload = function() {
-        alert("You've gotten to another page.");
-        document.getElementById("test-p-object").innerHTML = set_to_study;
-    }
-    alert("this should come after.");
+}
+
+function onPageLoad_studyGlossary(){
+    alert("You've gotten to another page.");
+    document.getElementById("test-p-object").innerHTML = set_to_study;
+
 }
 
 function testing(){
