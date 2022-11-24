@@ -111,7 +111,10 @@ function onPageLoad_studyGlossary(){
         alert("You've gotten to another page.");
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
         random_headline = localStorage.getItem("random_headline");
-        document.getElementById("test-p-object").innerHTML = JSON.stringify(obj_allSets[random_headline]);
+        var entries_array = Object.entries(obj_allSets[random_headline]);
+        console.log(entries_array);
+        document.getElementById("test-p-object").innerHTML = entries_array[0][0];
+        console.log(entries_array[0][0]);
     }
 }
 
