@@ -37,7 +37,7 @@ function createHeadline() {
         alert("Please submit a headline to create your set.");
     }
     document.getElementById('textinput_headline').value = "";
-    
+    document.getElementById("textinput_newword").focus();
 }
 
 function createPair() {
