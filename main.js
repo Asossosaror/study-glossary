@@ -21,10 +21,8 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-document.addEventListener("load", (event) => {
-    if(document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html'){
-        onPageLoad_studyGlossary();
-    }
+document.addEventListener("load", function() {
+    alert("it is loaded.");
 });
 
 function createHeadline() {
