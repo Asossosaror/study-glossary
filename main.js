@@ -109,8 +109,9 @@ function chooseRandomSet(){
 function onPageLoad_studyGlossary(){
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         alert("You've gotten to another page.");
-        set_to_study = localStorage.getItem("set_to_study");
-        document.getElementById("test-p-object").innerHTML = set_to_study;
+        obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+        random_headline = localStorage.getItem("random_headline");
+        document.getElementById("test-p-object").innerHTML = JSON.stringify(obj_allSets[random_headline]);
     }
 }
 
