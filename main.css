@@ -13,6 +13,7 @@ body {
     margin-top: 20px;
     padding: 25px;
     padding-top: 5px;
+    box-shadow: 0 0 5px 1px rgb(255, 104, 64);
 }
 
 .text-input {
@@ -38,4 +39,5 @@ body {
     text-align: center;
     bottom: 0;
     left: 0;
+    box-shadow: 0 0 5px 1px rgb(255, 104, 64);
 }

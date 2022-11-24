@@ -89,6 +89,20 @@ function resetStorage(){
     console.log(JSON.parse(localStorage.getItem("obj_allSets")));
 }
 
+function randomSet(){
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets")) || {};
+    if(obj_allSets == {}){
+        alert("Please submit a set of words to start practicing.");
+    }
+    var headline_array = Object.keys(obj_allSets);
+    console.log(headline_array);
+    var random_headline = headline_array[Math.floor(Math.random() * headline_array.length)];
+    console.log(random_headline);
+    var set_to_study = obj_allSets[random_headline];
+    console.log(set_to_study);
+    openPage('https://asossosaror.github.io/study-glossary/studyGlossary.html');
+}
+
 function testing(){
     document.getElementById('testp2').innerHTML = localStorage.getItem("obj_allSets");
 }
