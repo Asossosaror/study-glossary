@@ -21,9 +21,7 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-document.addEventListener("load", function() {
-    alert("it is loaded.");
-});
+window.addEventListener('load', onPageLoad_studyGlossary, false);
 
 function createHeadline() {
     newHeadline = document.getElementById('textinput_headline');
