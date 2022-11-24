@@ -107,7 +107,7 @@ function chooseRandomSet(){
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
     localStorage.setItem("random_headline", random_headline);
-    openPage('https://asossosaror.github.io/study-glossary/studyGlossary.html');
+    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
 }
 
 function onPageLoad_studyGlossary(){
