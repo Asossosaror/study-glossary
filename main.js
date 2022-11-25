@@ -152,7 +152,7 @@ function submitAnswer() {
     console.log(entries_array[words_done][1]);
     if(yourAnswer == entries_array[words_done][1]){
         document.getElementById("your-answer-input").style.backgroundColor = "green";
-        setTimeout(document.getElementById("your-answer-input").style.backgroundColor = "white", 1000);
+        setTimeout(changeColorToWhite(), 1000);
         correct_answers = correct_answers + 1;
     }
     words_done = words_done + 1;
@@ -162,6 +162,10 @@ function submitAnswer() {
     } else {
         studyNewWord();
     }
+}
+
+function changeColorToWhite() {
+    document.getElementById("your-answer-input").style.backgroundColor = "white";
 }
 
 function studySetFinished() {
