@@ -5,6 +5,7 @@ var obj_sets = {};
 var obj_allSets = {};
 var var_newWord_explanation_class = document.getElementsByClassName("newWord_explanation_class");
 var words_done = 0;
+var correct_answers = 0;
 
 function openPage(url){
     document.location.href = url;
@@ -112,7 +113,6 @@ function chooseRandomSet(){
 
 function onPageLoad_studyGlossary(){
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
-        alert("You've gotten to another page.");
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
         study_headline = localStorage.getItem("random_headline");
         var entries_array = Object.entries(obj_allSets[study_headline]);
@@ -126,14 +126,31 @@ function onPageLoad_studyGlossary(){
     }
 }
 
+function studyNewWord() {
+    document.getElementById("your-answer-input").focus();
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    study_headline = localStorage.getItem("random_headline");
+    var entries_array = Object.entries(obj_allSets[study_headline]);
+    console.log(entries_array);
+    var yourWord = entries_array[words_done][0];
+    document.getElementById("your-word").innerHTML = yourWord;
+    console.log(yourWord);
+    yourWord_serialized = JSON.stringify(yourWord);
+    localStorage.setItem("yourWord", yourWord_serialized);
+    document.getElementById("your-headline").innerHTML = study_headline;
+}
+
 function submitAnswer() {
-    words_done = words_done + 1;
-    var yourAnswer = document.getElementById("study-submit-btn").value;
+    var yourAnswer = document.getElementById("your-answer-input").value;
     console.log(yourAnswer);
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
-    if(yourAnswer == yourWord){
+    console.log(entries_array[words_done][1]);
+    if(yourAnswer == entries_array[words_done][1]){
         document.getElementById("your-answer-input").style.backgroundColor = "green";
+        correct_answers = correct_answers + 1;
     }
+    words_done = words_done + 1;
+    studyNewWord();
 }
 
 function testing(){
