@@ -26,7 +26,16 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-window.addEventListener('load', onPageLoad_studyGlossary, false);
+window.addEventListener('load', onLoadRedirector, false);
+
+function onLoadRedirector() {
+    if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
+        onPageLoad_studyGlossary();
+    }
+    if(document.location.href == 'https://asossosaror.github.io/study-glossary/results.html') {
+        displayResults();
+    }
+}
 
 function createHeadline() {
     newHeadline = document.getElementById('textinput_headline');
@@ -112,20 +121,18 @@ function chooseRandomSet(){
 }
 
 function onPageLoad_studyGlossary(){
-    if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
-        obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-        study_headline = localStorage.getItem("random_headline");
-        var entries_array = Object.entries(obj_allSets[study_headline]);
-        var entries_array_serialized = JSON.stringify(entries_array);
-        localStorage.setItem("entries_array", entries_array_serialized);
-        console.log(entries_array);
-        var yourWord = entries_array[words_done][0];
-        document.getElementById("your-word").innerHTML = yourWord;
-        console.log(yourWord);
-        yourWord_serialized = JSON.stringify(yourWord);
-        localStorage.setItem("yourWord", yourWord_serialized);
-        document.getElementById("your-headline").innerHTML = study_headline;
-    }
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    study_headline = localStorage.getItem("random_headline");
+    var entries_array = Object.entries(obj_allSets[study_headline]);
+    var entries_array_serialized = JSON.stringify(entries_array);
+    localStorage.setItem("entries_array", entries_array_serialized);
+    console.log(entries_array);
+    var yourWord = entries_array[words_done][0];
+    document.getElementById("your-word").innerHTML = yourWord;
+    console.log(yourWord);
+    yourWord_serialized = JSON.stringify(yourWord);
+    localStorage.setItem("yourWord", yourWord_serialized);
+    document.getElementById("your-headline").innerHTML = study_headline;
 }
 
 function studyNewWord() {
@@ -157,9 +164,14 @@ function submitAnswer() {
         console.log(correct_answers);
     }
     words_done = words_done + 1;
-    document.getElementById("your-answer-input").innerHTML = "";
+    // Saving the numbers to display on the results page.
+    var correct_answers_serialized = JSON.stringify(correct_answers);
+    localStorage.setItem("correct_answers", correct_answers_serialized);
+    var words_done_serialized = JSON.stringify(words_done);
+    localStorage.setItem("words_done", words_done_serialized);
+    document.getElementById("your-answer-input").value = "";
     if(words_done >= entries_array.length) {
-        studySetFinished();
+        document.location.href = 'https://asossosaror.github.io/study-glossary/results.html';
     } else {
         studyNewWord();
     }
@@ -169,8 +181,22 @@ function changeColorToWhite() {
     document.getElementById("your-answer-input").style.backgroundColor = "white";
 }
 
-function studySetFinished() {
-    document.location.href = 'https://asossosaror.github.io/study-glossary/chooseSet.html';
+function displayResults() {
+    correct_answers = JSON.parse(localStorage.getItem("correct_answers"));
+    words_done = JSON.parse(localStorage.getItem("words_done"));
+    document.getElementById("results-p").innerHTML = String(correct_answers) + " / " + String(words_done);
+    results_percent = correct_answers / words_done;
+    if(results_percent >= 95){
+        document.getElementById("conclusion-p").innerHTML = "Amazing!";
+    } else if(results_percent >= 85) {
+        document.getElementById("conclusion-p").innerHTML = "Great!";
+    } else if(results_percent >= 75) {
+        document.getElementById("conclusion-p").innerHTML = "Well done!";
+    } else if(results_percent >= 50) {
+        document.getElementById("conclusion-p").innerHTML = "There's always room for improvement.";
+    } else {
+        document.getElementById("conclusion-p").innerHTML = "Don't give up! Anything is possible with a bit of practice.";
+    }
 }
 
 function testing(){
