@@ -146,15 +146,25 @@ function studyNewWord() {
 function submitAnswer() {
     var yourAnswer = document.getElementById("your-answer-input").value;
     console.log(yourAnswer);
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array[words_done][1]);
     if(yourAnswer == entries_array[words_done][1]){
         document.getElementById("your-answer-input").style.backgroundColor = "green";
+        setTimeout(document.getElementById("your-answer-input").style.backgroundColor = "white", 1000);
         correct_answers = correct_answers + 1;
     }
     words_done = words_done + 1;
-    studyNewWord();
+    if(words_done >= entries_array.length) {
+        studySetFinished();
+    } else {
+        studyNewWord();
+    }
+}
+
+function studySetFinished() {
+    document.location.href = 'https://asossosaror.github.io/study-glossary/chooseSet.html';
 }
 
 function testing(){
