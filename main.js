@@ -156,6 +156,7 @@ function submitAnswer() {
         correct_answers = correct_answers + 1;
     }
     words_done = words_done + 1;
+    document.getElementById("your-answer-input").innerHTML = "";
     if(words_done >= entries_array.length) {
         studySetFinished();
     } else {
