@@ -50,3 +50,12 @@ body {
     font-weight: bold;
     font-size: 20px;
 }
+
+.back-to-home-btn {
+    all: unset;
+    position: absolute;
+    right: 25%;
+    top: 0.85cm;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+}
