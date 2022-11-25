@@ -185,7 +185,7 @@ function displayResults() {
     correct_answers = JSON.parse(localStorage.getItem("correct_answers"));
     words_done = JSON.parse(localStorage.getItem("words_done"));
     document.getElementById("results-p").innerHTML = String(correct_answers) + " / " + String(words_done);
-    results_percent = correct_answers / words_done;
+    results_percent = (correct_answers / words_done) * 100;
     if(results_percent >= 95){
         document.getElementById("conclusion-p").innerHTML = "Amazing!";
     } else if(results_percent >= 85) {
