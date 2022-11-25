@@ -127,6 +127,7 @@ function onPageLoad_studyGlossary(){
 }
 
 function studyNewWord() {
+    console.log("this is the headline" + study_headline)
     document.getElementById("your-answer-input").focus();
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     study_headline = localStorage.getItem("random_headline");
