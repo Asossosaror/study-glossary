@@ -116,6 +116,8 @@ function onPageLoad_studyGlossary(){
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
         study_headline = localStorage.getItem("random_headline");
         var entries_array = Object.entries(obj_allSets[study_headline]);
+        var entries_array_serialized = JSON.stringify(entries_array);
+        localStorage.setItem("entries_array", entries_array_serialized);
         console.log(entries_array);
         var yourWord = entries_array[words_done][0];
         document.getElementById("your-word").innerHTML = yourWord;
@@ -131,7 +133,7 @@ function studyNewWord() {
     document.getElementById("your-answer-input").focus();
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     study_headline = localStorage.getItem("random_headline");
-    var entries_array = Object.entries(obj_allSets[study_headline]);
+    entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array);
     var yourWord = entries_array[words_done][0];
     document.getElementById("your-word").innerHTML = yourWord;
@@ -145,6 +147,7 @@ function submitAnswer() {
     var yourAnswer = document.getElementById("your-answer-input").value;
     console.log(yourAnswer);
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
+    entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array[words_done][1]);
     if(yourAnswer == entries_array[words_done][1]){
         document.getElementById("your-answer-input").style.backgroundColor = "green";
