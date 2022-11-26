@@ -3,43 +3,75 @@
 }
 
 body {
-    background-color: rgb(154, 45, 225);
+    background-color: rgb(150, 212, 250);
+}
+
+h1 {
+    color: black;
+}
+
+p {
+    color: black;
 }
 
 .center-box {
-    background-color: rgb(255, 104, 64);
+    background-color: white;
     margin: auto;
     width: 50%;
     margin-top: 20px;
     padding: 25px;
     padding-top: 5px;
-    box-shadow: 10px 9px 5px 1px black;
+    box-shadow: 10px 9px 5px 1px rgb(40, 61, 70);
+    border-radius: 10px;
 }
 
 .text-input {
-    margin: 3px 5px 5px 0px;
+    all: unset;
+    margin: 0px 5px 10px 0px;
     width: 35%;
-    height: 25px;
+    height: 30px;
     display: block;
+    background-color: rgb(0, 241, 241);
+    border-radius: 10px;
+    text-indent: 10px;
+    box-shadow: 3px 2px 2px 0px rgb(40, 61, 70);
+    caret-color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+input:focus::placeholder{
+    color: transparent;
 }
 
 .btn {
-    background-color: rgb(226, 241, 51);
-    border-color: rgb(226, 241, 51 );
+    all: unset;
+    background-color: indigo;
+    border-radius: 5px;
     padding: 4px 10px;
     margin: 3px 5px 5px 0px;
     text-align: left;
+    color: aliceblue;
+    font-weight: 650;
+    box-shadow: 3px 2px 2px 0px rgb(40, 61, 70);
+}
+
+.btn:active {
+    background-color: rgb(151, 88, 196);
+    box-shadow: 3px 2px 2px 3px rgb(40, 61, 70);
 }
 
 .footer-div {
     position: absolute;
-    background-color: rgb(255, 104, 64);
+    background-color: white;
     width: 100%;
     height: 100px;
     text-align: center;
     bottom: 0;
     left: 0;
-    box-shadow: 0 -2px 5px 1px black;
+    box-shadow: 0 -2px 5px 1px rgb(40, 61, 70);
 }
 
 #your-word {
@@ -56,6 +88,7 @@ body {
     position: absolute;
     right: 25%;
     top: 0.85cm;
+    color: rgb(0, 3, 31);
     text-decoration: underline;
     text-underline-offset: 1px;
 }
