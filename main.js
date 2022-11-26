@@ -158,11 +158,15 @@ function submitAnswer() {
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array[words_done][1]);
     if(yourAnswer == entries_array[words_done][1]){
-        document.getElementById("your-answer-input").style.backgroundColor = rgb(56, 252, 3);
-        setTimeout(changeColorToWhite, 1000);
+        document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
         correct_answers = correct_answers + 1;
         console.log(correct_answers);
+    } else {
+        document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+        document.getElementById("your-answer-input").value = entries_array[words_done][1];
     }
+    setTimeout(changeColorToBlue, 1000);
+    document.getElementById("your-answer-input").value = "";
     words_done = words_done + 1;
     // Saving the numbers to display on the results page.
     var correct_answers_serialized = JSON.stringify(correct_answers);
@@ -177,8 +181,8 @@ function submitAnswer() {
     }
 }
 
-function changeColorToWhite() {
-    document.getElementById("your-answer-input").style.backgroundColor = "white";
+function changeColorToBlue() {
+    document.getElementById("your-answer-input").style.backgroundColor = "rgb(0, 241, 241)";
 }
 
 function displayResults() {
