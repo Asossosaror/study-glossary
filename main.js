@@ -166,7 +166,7 @@ function submitAnswer() {
         document.getElementById("your-answer-input").value = entries_array[words_done][1];
     }
     setTimeout(changeColorToBlue, 1000);
-    document.getElementById("your-answer-input").value = "";
+    setTimeout(changeValueToZero, 1000);
     words_done = words_done + 1;
     // Saving the numbers to display on the results page.
     var correct_answers_serialized = JSON.stringify(correct_answers);
@@ -183,6 +183,10 @@ function submitAnswer() {
 
 function changeColorToBlue() {
     document.getElementById("your-answer-input").style.backgroundColor = "rgb(0, 241, 241)";
+}
+
+function changeValueToZero() {
+    document.getElementById("your-answer-input").value = "";
 }
 
 function displayResults() {
