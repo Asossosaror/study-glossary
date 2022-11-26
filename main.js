@@ -158,7 +158,7 @@ function submitAnswer() {
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array[words_done][1]);
     if(yourAnswer == entries_array[words_done][1]){
-        document.getElementById("your-answer-input").style.backgroundColor = "green";
+        document.getElementById("your-answer-input").style.backgroundColor = rgb(56, 252, 3);
         setTimeout(changeColorToWhite, 1000);
         correct_answers = correct_answers + 1;
         console.log(correct_answers);
