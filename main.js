@@ -137,7 +137,7 @@ function onPageLoad_studyGlossary(){
     if(answer_is_new_word) {
         document.getElementById("your-word").innerHTML = yourExplanation;
     } else {
-        document.getElementById("your-word").innerHTML = yourExplanation;
+        document.getElementById("your-word").innerHTML = yourWord;
     }
     console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
