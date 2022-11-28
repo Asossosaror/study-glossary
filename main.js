@@ -44,7 +44,7 @@ function createHeadline() {
     if(newHeadline.value != "" && Object.keys(obj_allSets).includes(newHeadline.value) == false){
         console.log(newHeadline.value);
         localStorage.setItem("headline", newHeadline.value);
-        openPage('https://asossosaror.github.io/study-glossary/createPair.html');
+        document.location.href = 'https://asossosaror.github.io/study-glossary/createPair.html';
     }
     if(Object.keys(obj_allSets).includes(newHeadline.value) == true){
         alert("There is already a headline like the one you've submitted. Please choose another one.")
