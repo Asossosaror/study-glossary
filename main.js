@@ -40,7 +40,7 @@ function onLoadRedirector() {
 function createHeadline() {
     newHeadline = document.getElementById('textinput_headline');
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    console.log(Object.keys(obj_allSets).includes(newHeadline.value));
+    console.log(Object.keys(obj_allSets).includes(newHeadline.value)) || {};
     if(newHeadline.value != "" && Object.keys(obj_allSets).includes(newHeadline.value) == false){
         console.log(newHeadline.value);
         localStorage.setItem("headline", newHeadline.value);
