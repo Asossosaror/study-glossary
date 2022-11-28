@@ -174,7 +174,7 @@ function submitAnswer() {
     yourExplanation = JSON.parse(localStorage.getItem("yourExplanation"));
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
-    if(answer_is_new_word) {
+    if(!answer_is_new_word) {
         if(yourAnswer == yourExplanation){
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
             correct_answers = correct_answers + 1;
