@@ -112,6 +112,7 @@ function chooseRandomSet(){
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets")) || {};
     if(obj_allSets == {}){
         alert("Please submit a set of words to start practicing.");
+        return;
     }
     var headline_array = Object.keys(obj_allSets);
     console.log(headline_array);
