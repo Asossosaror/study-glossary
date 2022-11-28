@@ -135,7 +135,7 @@ function onPageLoad_studyGlossary(){
     var yourExplanation = entries_array[words_done][1];
     answer_is_new_word = localStorage.getItem("answer_is_new_word");
     if(answer_is_new_word) {
-        document.getElementById("your-word").innerHTML = yourWord;
+        document.getElementById("your-word").innerHTML = yourExplanation;
     } else {
         document.getElementById("your-word").innerHTML = yourExplanation;
     }
