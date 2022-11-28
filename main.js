@@ -118,9 +118,9 @@ function chooseRandomSet(){
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
     localStorage.setItem("random_headline", random_headline);
-    //Show the two other buttons.
     document.getElementById('choose-new-word').style.visibility = 'visible';
     document.getElementById('choose-explanation').style.visibility = 'visible';
+    document.getElementById('random-set-btn').style.visibility = 'hidden';
 }
 
 function onPageLoad_studyGlossary(){
@@ -132,7 +132,7 @@ function onPageLoad_studyGlossary(){
     console.log(entries_array);
     var yourWord = entries_array[words_done][0];
     var yourAnswer = entries_array[words_done][1];
-    answer_is_new_word = localStorage.get("answer_is_new_word");
+    answer_is_new_word = localStorage.getItem("answer_is_new_word");
     if(answer_is_new_word === false) {
         document.getElementById("your-word").innerHTML = yourWord;
     } else {
@@ -230,6 +230,7 @@ function newWordOrAnswer(which) {
 function hideTwoButtons() {
     document.getElementById('choose-new-word').style.visibility = 'hidden';
     document.getElementById('choose-explanation').style.visibility = 'hidden';
+    document.getElementById('random-set-btn').style.visibility = 'visible';
 }
 
 function testing(){
