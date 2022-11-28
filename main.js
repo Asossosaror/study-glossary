@@ -124,6 +124,7 @@ function chooseRandomSet(){
 }
 
 function onPageLoad_studyGlossary(){
+    words_done = 0;
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     study_headline = localStorage.getItem("random_headline");
     var entries_array = Object.entries(obj_allSets[study_headline]);
@@ -134,18 +135,20 @@ function onPageLoad_studyGlossary(){
     var yourExplanation = entries_array[words_done][1];
     answer_is_new_word = localStorage.getItem("answer_is_new_word");
     if(answer_is_new_word) {
-        document.getElementById("your-word").innerHTML = yourExplanation;
-    } else {
         document.getElementById("your-word").innerHTML = yourWord;
+    } else {
+        document.getElementById("your-word").innerHTML = yourExplanation;
     }
     console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
     localStorage.setItem("yourWord", yourWord_serialized);
+    yourExplanation_serialized = JSON.stringify(yourExplanation);
+    localStorage.setItem("yourExplanation", yourExplanation_serialized);
     document.getElementById("your-headline").innerHTML = study_headline;
 }
 
 function studyNewWord() {
-    console.log("this is the headline" + study_headline)
+    console.log("this is the headline" + study_headline);
     document.getElementById("your-answer-input").focus();
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     study_headline = localStorage.getItem("random_headline");
