@@ -133,7 +133,7 @@ function onPageLoad_studyGlossary(){
     var yourWord = entries_array[words_done][0];
     var yourExplanation = entries_array[words_done][1];
     answer_is_new_word = localStorage.getItem("answer_is_new_word");
-    if(answer_is_new_word === true) {
+    if(answer_is_new_word === false) {
         document.getElementById("your-word").innerHTML = yourWord;
     } else {
         document.getElementById("your-word").innerHTML = yourExplanation;
@@ -152,10 +152,17 @@ function studyNewWord() {
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array);
     var yourWord = entries_array[words_done][0];
-    document.getElementById("your-word").innerHTML = yourWord;
-    console.log(yourWord);
+    var yourExplanation = entries_array[words_done][1];
+    answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
+    if(answer_is_new_word) {
+        document.getElementById("your-word").innerHTML = yourExplanation;
+    } else {
+        document.getElementById("your-word").innerHTML = yourWord;
+    }
     yourWord_serialized = JSON.stringify(yourWord);
     localStorage.setItem("yourWord", yourWord_serialized);
+    yourExplanation_serialized = JSON.stringify(yourExplanation);
+    localStorage.setItem("yourExplanation", yourExplanation_serialized);
     document.getElementById("your-headline").innerHTML = study_headline;
 }
 
@@ -164,15 +171,27 @@ function submitAnswer() {
     console.log(yourAnswer);
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
+    yourExplanation = JSON.parse(localStorage.getItem("yourExplanation"));
+    answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
-    console.log(entries_array[words_done][1]);
-    if(yourAnswer == entries_array[words_done][1]){
-        document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
-        correct_answers = correct_answers + 1;
-        console.log(correct_answers);
+    if(answer_is_new_word) {
+        if(yourAnswer == yourExplanation){
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
+            correct_answers = correct_answers + 1;
+            console.log(correct_answers);
+        } else {
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            document.getElementById("your-answer-input").value = entries_array[words_done][1];
+        }
     } else {
-        document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
-        document.getElementById("your-answer-input").value = entries_array[words_done][1];
+        if(yourAnswer == yourWord){
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
+            correct_answers = correct_answers + 1;
+            console.log(correct_answers);
+        } else {
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            document.getElementById("your-answer-input").value = entries_array[words_done][1];
+        }
     }
     setTimeout(changeColorToBlue, 1000);
     setTimeout(changeValueToZero, 1000);
