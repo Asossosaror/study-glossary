@@ -133,10 +133,10 @@ function onPageLoad_studyGlossary(){
     var yourWord = entries_array[words_done][0];
     var yourExplanation = entries_array[words_done][1];
     answer_is_new_word = localStorage.getItem("answer_is_new_word");
-    if(answer_is_new_word === false) {
-        document.getElementById("your-word").innerHTML = yourWord;
-    } else {
+    if(answer_is_new_word) {
         document.getElementById("your-word").innerHTML = yourExplanation;
+    } else {
+        document.getElementById("your-word").innerHTML = yourWord;
     }
     console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
@@ -172,6 +172,8 @@ function submitAnswer() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
     yourExplanation = JSON.parse(localStorage.getItem("yourExplanation"));
+    console.log("yourExplanation");
+    console.log(yourExplanation);
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     if(!answer_is_new_word) {
