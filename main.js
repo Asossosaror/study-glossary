@@ -6,6 +6,8 @@ var obj_allSets = {};
 var var_newWord_explanation_class = document.getElementsByClassName("newWord_explanation_class");
 var words_done = 0;
 var correct_answers = 0;
+var yourWord;
+var yourExplanation;
 
 function openPage(url){
     document.location.href = url;
@@ -131,15 +133,14 @@ function onPageLoad_studyGlossary(){
     var entries_array_serialized = JSON.stringify(entries_array);
     localStorage.setItem("entries_array", entries_array_serialized);
     console.log(entries_array);
-    var yourWord = entries_array[words_done][0];
-    var yourExplanation = entries_array[words_done][1];
-    answer_is_new_word = localStorage.getItem("answer_is_new_word");
+    yourWord = entries_array[words_done][0];
+    yourExplanation = entries_array[words_done][1];
+    answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     if(answer_is_new_word) {
         document.getElementById("your-word").innerHTML = yourExplanation;
     } else {
         document.getElementById("your-word").innerHTML = yourWord;
     }
-    console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
     localStorage.setItem("yourWord", yourWord_serialized);
     yourExplanation_serialized = JSON.stringify(yourExplanation);
@@ -154,8 +155,8 @@ function studyNewWord() {
     study_headline = localStorage.getItem("random_headline");
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array);
-    var yourWord = entries_array[words_done][0];
-    var yourExplanation = entries_array[words_done][1];
+    yourWord = entries_array[words_done][0];
+    yourExplanation = entries_array[words_done][1];
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     if(answer_is_new_word) {
         document.getElementById("your-word").innerHTML = yourExplanation;
