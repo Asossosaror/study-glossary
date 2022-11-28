@@ -131,12 +131,12 @@ function onPageLoad_studyGlossary(){
     localStorage.setItem("entries_array", entries_array_serialized);
     console.log(entries_array);
     var yourWord = entries_array[words_done][0];
-    var yourAnswer = entries_array[words_done][1];
+    var yourExplanation = entries_array[words_done][1];
     answer_is_new_word = localStorage.getItem("answer_is_new_word");
-    if(answer_is_new_word === false) {
+    if(answer_is_new_word === true) {
         document.getElementById("your-word").innerHTML = yourWord;
     } else {
-        document.getElementById("your-word").innerHTML = yourAnswer;
+        document.getElementById("your-word").innerHTML = yourExplanation;
     }
     console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
