@@ -31,9 +31,10 @@ window.addEventListener('load', onLoadRedirector, false);
 function onLoadRedirector() {
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         onPageLoad_studyGlossary();
-    }
-    if(document.location.href == 'https://asossosaror.github.io/study-glossary/results.html') {
+    } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/results.html') {
         displayResults();
+    } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/chooseSet.html') {
+        hideTwoButtons();
     }
 }
 
@@ -117,7 +118,9 @@ function chooseRandomSet(){
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
     localStorage.setItem("random_headline", random_headline);
-    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
+    //Show the two other buttons.
+    document.getElementById('choose-new-word').style.visibility = 'visible';
+    document.getElementById('choose-explanation').style.visibility = 'visible';
 }
 
 function onPageLoad_studyGlossary(){
@@ -128,7 +131,13 @@ function onPageLoad_studyGlossary(){
     localStorage.setItem("entries_array", entries_array_serialized);
     console.log(entries_array);
     var yourWord = entries_array[words_done][0];
-    document.getElementById("your-word").innerHTML = yourWord;
+    var yourAnswer = entries_array[words_done][1];
+    answer_is_new_word = localStorage.get("answer_is_new_word");
+    if(answer_is_new_word === false) {
+        document.getElementById("your-word").innerHTML = yourWord;
+    } else {
+        document.getElementById("your-word").innerHTML = yourAnswer;
+    }
     console.log(yourWord);
     yourWord_serialized = JSON.stringify(yourWord);
     localStorage.setItem("yourWord", yourWord_serialized);
@@ -205,6 +214,22 @@ function displayResults() {
     } else {
         document.getElementById("conclusion-p").innerHTML = "Don't give up! Anything is possible with a bit of practice.";
     }
+}
+
+function newWordOrAnswer(which) {
+    // This function is for deciding wether one should answer with the explanation or the new word.
+    if(which == "newWord"){
+        answer_is_new_word = true;
+    } else if(which == "answer"){
+        answer_is_new_word = false;
+    }
+    localStorage.setItem("answer_is_new_word", JSON.stringify(answer_is_new_word));
+    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
+}
+
+function hideTwoButtons() {
+    document.getElementById('choose-new-word').style.visibility = 'hidden';
+    document.getElementById('choose-explanation').style.visibility = 'hidden';
 }
 
 function testing(){
