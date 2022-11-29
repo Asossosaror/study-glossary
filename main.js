@@ -115,6 +115,7 @@ function chooseRandomSet(){
         return;
     }
     var headline_array = Object.keys(obj_allSets);
+    if(headline_array.length == 0)
     console.log(headline_array);
     var random_headline = headline_array[Math.floor(Math.random() * headline_array.length)];
     console.log(random_headline);
@@ -139,6 +140,7 @@ function onPageLoad_studyGlossary(){
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     if(answer_is_new_word) {
         document.getElementById("your-word").innerHTML = yourExplanation;
+        document.getElementById("what-p").innerHTML = "What is the word for this?";
     } else {
         document.getElementById("your-word").innerHTML = yourWord;
     }

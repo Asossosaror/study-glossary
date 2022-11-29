@@ -92,3 +92,7 @@ input:focus::placeholder{
     text-decoration: underline;
     text-underline-offset: 1px;
 }
+
+#random-set-btn {
+    position: absolute;
+}
