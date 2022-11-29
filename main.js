@@ -117,6 +117,7 @@ function chooseRandomSet(){
     var headline_array = Object.keys(obj_allSets);
     if(headline_array.length == 0) {
         alert("Please submit a set of words to start practicing.");
+        return;
     }
     console.log(headline_array);
     var random_headline = headline_array[Math.floor(Math.random() * headline_array.length)];
