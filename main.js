@@ -271,3 +271,7 @@ function another(){
     document.getElementById("testp2").innerHTML = Object.keys(cracked);
     console.log(Object.keys(cracked).includes("blabla"));
 }
+
+function blabla() {
+    document.getElementById("testing").value = "Nice";
+}
