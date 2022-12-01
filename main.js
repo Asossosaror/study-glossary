@@ -16,13 +16,13 @@ function openPage(url){
 document.addEventListener("keydown", function(event){
     if(event.key == "Enter"){
         event.preventDefault();
-        if(window.location.href == 'hHTML\createHeadline.html'){
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/createHeadline.html'){
             createHeadline();
         } 
-        if(window.location.href == 'HTML\createPair.html' || window.location.href == 'HTML\createPair.html?'){
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
             document.getElementById('submitPairBtn').click();
         }
-        if(window.location.href == 'HTML\studyGlossary.html' || window.location.href == 'HTML\studyGlossary.html?'){
+        if(window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html?'){
             document.getElementById("study-submit-btn").click();
         }
     }
@@ -31,11 +31,11 @@ document.addEventListener("keydown", function(event){
 window.addEventListener('load', onLoadRedirector, false);
 
 function onLoadRedirector() {
-    if(document.location.href == 'HTML\studyGlossary.html') {
+    if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         onPageLoad_studyGlossary();
-    } else if(document.location.href == 'HTML\results.html') {
+    } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/results.html') {
         displayResults();
-    } else if(document.location.href == 'HTML\chooseSet.html') {
+    } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/chooseSet.html') {
         hideTwoButtons();
     }
 }
@@ -47,7 +47,7 @@ function createHeadline() {
     if(newHeadline.value != "" && Object.keys(obj_allSets).includes(newHeadline.value) == false){
         console.log(newHeadline.value);
         localStorage.setItem("headline", newHeadline.value);
-        document.location.href = 'HTML\createPair.html';
+        document.location.href = 'https://asossosaror.github.io/study-glossary/createPair.html';
     }
     if(Object.keys(obj_allSets).includes(newHeadline.value) == true){
         alert("There is already a headline like the one you've submitted. Please choose another one.")
@@ -215,7 +215,7 @@ function submitAnswer() {
     localStorage.setItem("words_done", words_done_serialized);
     document.getElementById("your-answer-input").value = "";
     if(words_done >= entries_array.length) {
-        document.location.href = 'HTML\results.html';
+        document.location.href = 'https://asossosaror.github.io/study-glossary/results.html';
     } else {
         studyNewWord();
     }
@@ -255,7 +255,7 @@ function newWordOrAnswer(which) {
         answer_is_new_word = false;
     }
     localStorage.setItem("answer_is_new_word", JSON.stringify(answer_is_new_word));
-    document.location.href = 'HTML\studyGlossary.html';
+    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
 }
 
 function hideTwoButtons() {
