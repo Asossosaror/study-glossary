@@ -177,6 +177,7 @@ function studyNewWord() {
 }
 
 function submitAnswer() {
+    document.getElementById("your-answer-input").value = "It works partially";
     var yourAnswer = document.getElementById("your-answer-input").value;
     console.log(yourAnswer);
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
