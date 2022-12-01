@@ -178,7 +178,6 @@ function studyNewWord() {
 
 function submitAnswer() {
     var yourAnswer = document.getElementById("your-answer-input").value;
-    console.log(yourAnswer);
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     yourWord = JSON.parse(localStorage.getItem("yourWord"));
     yourExplanation = JSON.parse(localStorage.getItem("yourExplanation"));
@@ -186,6 +185,8 @@ function submitAnswer() {
     console.log(yourExplanation);
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
+    console.log("this is your word:");
+    console.log(yourWord);
     if(!answer_is_new_word) {
         if(yourAnswer == yourExplanation){
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
