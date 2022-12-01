@@ -193,6 +193,7 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            console.log(yourWord);
             document.getElementById("your-answer-input").value = yourExplanation;
         }
     } else {
@@ -202,11 +203,11 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            console.log(yourWord);
             document.getElementById("your-answer-input").value = yourWord;
         }
     }
-    setTimeout(changeColorToBlue, 1000);
-    setTimeout(changeValueToZero, 1000);
+    setTimeout(resetColorAndText, 1000);
     words_done = words_done + 1;
     // Saving the numbers to display on the results page.
     var correct_answers_serialized = JSON.stringify(correct_answers);
@@ -221,11 +222,8 @@ function submitAnswer() {
     }
 }
 
-function changeColorToBlue() {
+function resetColorAndText() {
     document.getElementById("your-answer-input").style.backgroundColor = "rgb(0, 241, 241)";
-}
-
-function changeValueToZero() {
     document.getElementById("your-answer-input").value = "";
 }
 
