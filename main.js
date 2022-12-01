@@ -155,7 +155,7 @@ function onPageLoad_studyGlossary(){
 }
 
 function studyNewWord() {
-    console.log("this is the headline" + study_headline);
+    console.log("this is the headline: " + study_headline);
     document.getElementById("your-answer-input").focus();
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     study_headline = localStorage.getItem("random_headline");
@@ -185,8 +185,6 @@ function submitAnswer() {
     console.log(yourExplanation);
     answer_is_new_word = JSON.parse(localStorage.getItem("answer_is_new_word"));
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
-    console.log("this is your word:");
-    console.log(yourWord);
     if(!answer_is_new_word) {
         if(yourAnswer == yourExplanation){
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
@@ -194,7 +192,6 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
-            console.log(yourWord);
             document.getElementById("your-answer-input").value = yourExplanation;
         }
     } else {
@@ -204,7 +201,6 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
-            console.log(yourWord);
             document.getElementById("your-answer-input").value = yourWord;
         }
     }
@@ -215,7 +211,6 @@ function submitAnswer() {
     localStorage.setItem("correct_answers", correct_answers_serialized);
     var words_done_serialized = JSON.stringify(words_done);
     localStorage.setItem("words_done", words_done_serialized);
-    document.getElementById("your-answer-input").value = "";
     if(words_done >= entries_array.length) {
         document.location.href = 'https://asossosaror.github.io/study-glossary/results.html';
     } else {
