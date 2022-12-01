@@ -193,7 +193,7 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
-            document.getElementById("your-answer-input").value = entries_array[words_done][1];
+            document.getElementById("your-answer-input").value = yourExplanation;
         }
     } else {
         if(yourAnswer == yourWord){
@@ -202,7 +202,7 @@ function submitAnswer() {
             console.log(correct_answers);
         } else {
             document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
-            document.getElementById("your-answer-input").value = entries_array[words_done][1];
+            document.getElementById("your-answer-input").value = yourWord;
         }
     }
     setTimeout(changeColorToBlue, 1000);
