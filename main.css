@@ -127,7 +127,10 @@ td:nth-child(2) {
 }
 
 .icon-btn {
+    all: unset;
     border-radius: 2px;
+    background-color: inherit;
+    border: none;
 }
 
 .icon-btn:hover {
