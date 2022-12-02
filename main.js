@@ -280,10 +280,15 @@ function listHeadlines() {
         let binCell = document.createElement("td");
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
+        deleteBtn.onclick = 'sendTestAlert()';
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         binCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
         newHeadlineRow.appendChild(binCell);
         headlineTable.appendChild(newHeadlineRow);
     })
+}
+
+function sendTestAlert() {
+    alert("You deleted that headline. (Just imagine you did)");
 }

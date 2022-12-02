@@ -106,16 +106,20 @@ table {
     background-color: rgb(216, 234, 250);
 }
 
+td {
+    border-color: transparent;
+}
+
 th, td {
-    border: none;
     border-bottom: 2px solid white;
     text-align: left;
-    padding: 10px;
+    padding: 7px;
     padding-right: 20px;
 }
 
 td:nth-child(2) {
     width: 20%;
+    text-align: right;
 }
 
 .material-symbols-outlined {
@@ -149,8 +153,4 @@ td:nth-child(2) {
 
 #headline-table tr:hover {
     background-color: rgb(128, 167, 201);
-}
-
-#headline-table tr:nth-child(even) {
-    background-color: rgb(171, 213, 250);
 }
