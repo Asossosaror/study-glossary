@@ -99,9 +99,10 @@ input:focus::placeholder{
 
 table {
     border-collapse: collapse;
-    border-radius: 3px;
-    width: 70%;
+    border-radius: 1em;
+    width: 90%;
     margin: auto;
+    overflow: hidden;
 }
 
 th, td {
