@@ -280,7 +280,7 @@ function listHeadlines() {
         let binCell = document.createElement("td");
         binCell.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         newHeadlineRow.appendChild(headlineCell);
-        newHeadlineRow.appendChild(bincell);
+        newHeadlineRow.appendChild(binCell);
         headlineTable.appendChild(newHeadlineRow);
     })
 }
