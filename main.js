@@ -277,10 +277,10 @@ function listHeadlines() {
         let newHeadlineRow = document.createElement("tr");
         let headlineCell = document.createElement("td");
         headlineCell.innerText = value;
-        let emptyCell = document.createElement("td");
-        emptyCell.innerText = "";
+        let binCell = document.createElement("td");
+        binCell.innerHTML = "<i class='fa-light fa-trash'></i>";
         newHeadlineRow.appendChild(headlineCell);
-        newHeadlineRow.appendChild(emptyCell);
+        newHeadlineRow.appendChild(bincell);
         headlineTable.appendChild(newHeadlineRow);
     })
 }
