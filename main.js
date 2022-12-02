@@ -278,7 +278,7 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         headlineCell.innerText = value;
         let binCell = document.createElement("td");
-        binCell.innerHTML = "<i class='fa-light fa-trash'></i>";
+        binCell.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         newHeadlineRow.appendChild(headlineCell);
         newHeadlineRow.appendChild(bincell);
         headlineTable.appendChild(newHeadlineRow);
