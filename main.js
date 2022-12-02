@@ -18,11 +18,9 @@ document.addEventListener("keydown", function(event){
         event.preventDefault();
         if(window.location.href == 'https://asossosaror.github.io/study-glossary/createHeadline.html'){
             createHeadline();
-        } 
-        if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
+        } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/createPair.html?'){
             document.getElementById('submitPairBtn').click();
-        }
-        if(window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html?'){
+        } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html?'){
             document.getElementById("study-submit-btn").click();
         }
     }
@@ -37,6 +35,8 @@ function onLoadRedirector() {
         displayResults();
     } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/chooseSet.html') {
         hideTwoButtons();
+    } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeSet.html') {
+        listHeadlines();
     }
 }
 
@@ -266,4 +266,17 @@ function another(){
     var cracked = JSON.parse(localStorage.getItem("obj_allSets"));
     document.getElementById("testp2").innerHTML = Object.keys(cracked);
     console.log(Object.keys(cracked).includes("blabla"));
+}
+
+//Set the items of the headline table.
+function listHeadlines() {
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    Object.keys(obj_allSets).forEach((value) => {
+        let newHeadlineRow = document.createElement("tr");
+        let headlineCell = document.createElement("td");
+        headlineCell.innerText = value;
+        let emptyCell = document.createElement("td");
+        emptyCell.innerText = "";
+        newHeadlineRow.appendChild(headlineCell);
+    })
 }

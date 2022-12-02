@@ -96,3 +96,15 @@ input:focus::placeholder{
 #random-set-btn {
     position: absolute;
 }
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    border: 2px solid black;
+    text-align: left;
+    padding: 10px;
+    padding-right: 20px;
+}
