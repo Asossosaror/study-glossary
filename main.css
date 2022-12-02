@@ -125,3 +125,15 @@ td:nth-child(2) {
   'GRAD' 0,
   'opsz' 48
 }
+
+.icon-btn {
+    border-radius: 2px;
+}
+
+.icon-btn:hover {
+    background-color: rgb(213, 216, 220);
+}
+
+.icon-btn:active {
+    background-color: rgb(171, 178, 185);
+}
