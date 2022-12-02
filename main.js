@@ -272,11 +272,13 @@ function another(){
 function listHeadlines() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     Object.keys(obj_allSets).forEach((value) => {
+        console.log(Object.keys(obj_allSets));
         let newHeadlineRow = document.createElement("tr");
         let headlineCell = document.createElement("td");
         headlineCell.innerText = value;
         let emptyCell = document.createElement("td");
         emptyCell.innerText = "";
         newHeadlineRow.appendChild(headlineCell);
+        newHeadlineRow.appendChild(emptyCell);
     })
 }
