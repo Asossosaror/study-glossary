@@ -98,15 +98,17 @@ input:focus::placeholder{
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
     border-radius: 1em;
     width: 90%;
     margin: auto;
     overflow: hidden;
+    background-color: rgb(216, 234, 250);
 }
 
 th, td {
-    border: 1px solid rgba(0, 0, 0, .5);
+    border: none;
+    border-bottom: 2px solid white;
     text-align: left;
     padding: 10px;
     padding-right: 20px;
