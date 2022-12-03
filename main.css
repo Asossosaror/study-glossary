@@ -97,7 +97,7 @@ input:focus::placeholder{
     position: absolute;
 }
 
-table {
+.table {
     border-collapse: separate;
     border-radius: 1em;
     width: 90%;
@@ -140,11 +140,11 @@ th, td {
 }
 
 .icon-btn:hover {
-    background-color: rgb(213, 216, 220);
+    background-color: rgb(126, 180, 228);
 }
 
 .icon-btn:active {
-    background-color: rgb(171, 178, 185);
+    background-color: rgb(55, 114, 165);
 }
 
 .table th {
@@ -154,4 +154,30 @@ th, td {
 
 .table tr:hover {
     background-color: rgb(181, 209, 233);
+}
+
+.test-table {
+    border-collapse: collapse;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    background-color: rgb(216, 234, 250);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.20);
+}
+
+.test-table thead tr th {
+    background-color: rgb(148, 201, 248);
+}
+
+.test-table tbody tr:hover {
+    background-color: rgb(186, 221, 252);
+}
+
+.test-table thead tr th:nth-last-child(1) {
+    text-align: right;
+}
+
+.test-table tbody tr:last-of-type {
+    border-bottom: 3px solid rgb(126, 180, 228);
 }
