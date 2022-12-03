@@ -276,19 +276,25 @@ function listHeadlines() {
         console.log(value);
         let newHeadlineRow = document.createElement("tr");
         let headlineCell = document.createElement("td");
-        headlineCell.innerText = value;
-        let binCell = document.createElement("td");
+        let headlineAnchorTag = document.createElement("a");
+        headlineAnchorTag.innerText = value;
+        headlineCell.innerHTML = "<a onclick='sendAlert()'>Headline 1</a>"
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.onclick = 'sendTestAlert()';
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
-        binCell.appendChild(deleteBtn);
+        headlineCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
-        newHeadlineRow.appendChild(binCell);
         headlineTable.appendChild(newHeadlineRow);
     })
 }
 
+
+
 function sendTestAlert() {
     alert("You deleted that headline. (Just imagine you did)");
+}
+
+function sendAlert() {
+    alert("You are being redirected.");
 }

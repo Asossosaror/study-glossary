@@ -136,6 +136,7 @@ td:nth-child(2) {
     background-color: inherit;
     border: none;
     padding: 7px;
+    float: right;
 }
 
 .icon-btn:hover {
@@ -147,10 +148,10 @@ td:nth-child(2) {
 }
 
 #headline-table th {
-    background-color: rgb(78, 116, 150);
+    background-color: rgb(113, 152, 187);
     width: 5rem;
 }
 
 #headline-table tr:hover {
-    background-color: rgb(128, 167, 201);
+    background-color: rgb(181, 209, 233);
 }
