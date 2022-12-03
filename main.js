@@ -278,7 +278,10 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
-        headlineAnchorTag.onclick = 'goToListWords(value)';
+        function valueGoToListWords() {
+            goToListWords(value);
+        }
+        headlineAnchorTag.onclick = 'valueGoToListWords()';
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
