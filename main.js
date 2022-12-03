@@ -35,7 +35,7 @@ function onLoadRedirector() {
         displayResults();
     } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/chooseSet.html') {
         hideTwoButtons();
-    } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeSet.html') {
+    } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeHeadline.html') {
         listHeadlines();
     }
 }
