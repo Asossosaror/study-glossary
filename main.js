@@ -278,7 +278,9 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
-        headlineCell.innerHTML = "<a onclick='sendAlert()'>Headline 1</a>"
+        headlineAnchorTag.onclick = "sendAlert()";
+        headlineAnchorTag.className = 'headline-anchor-tag';
+        headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.onclick = 'sendTestAlert()';
