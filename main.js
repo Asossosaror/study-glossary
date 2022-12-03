@@ -300,6 +300,10 @@ function deleteHeadline() {
     alert("Are you sure you want to delete this headline?");
 }
 
+function deletePair() {
+    alert("Are you sure you want to delete this pair?");
+}
+
 function listWords() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     obj_setToShow = obj_allSets[localStorage.getItem('setToShow')];
@@ -311,6 +315,15 @@ function listWords() {
         let explanationCell = document.createElement("td");
         let binCell = document.createElement("td");
         newWordCell.innerText = key;
-        explanationCell.innerText = 
+        explanationCell.innerText = obj_setToShow[key];
+        let deleteBtn = document.createElement("button");
+        deleteBtn.className = 'icon-btn';
+        deleteBtn.onclick = 'deletePair()';
+        deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
+        binCell.appendChild(deleteBtn);
+        newWordRow.appendChild(newWordCell);
+        newWordRow.appendChild(explanationCell);
+        newWordRow.appendChild(binCell);
+        wordsTable.appendChild(newWordRow);
     })
 }
