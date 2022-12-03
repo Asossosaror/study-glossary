@@ -271,7 +271,7 @@ function another(){
 //Set the items of the headline table.
 function listHeadlines() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    const headlineTable = document.getElementById("headline-table");
+    const headlineTable = document.getElementById("headline-table-body");
     Object.keys(obj_allSets).forEach((value) => {
         console.log(value);
         let newHeadlineRow = document.createElement("tr");
