@@ -117,9 +117,9 @@ th, td {
     padding-right: 20px;
 }
 
-td:nth-child(2) {
-    width: 20%;
-    text-align: right;
+#words-table tr td:nth-last-child(1) {
+    width: 15%;
+    text-align: center;
 }
 
 .material-symbols-outlined {
@@ -147,11 +147,11 @@ td:nth-child(2) {
     background-color: rgb(171, 178, 185);
 }
 
-#headline-table th {
+.table th {
     background-color: rgb(113, 152, 187);
     width: 5rem;
 }
 
-#headline-table tr:hover {
+.table tr:hover {
     background-color: rgb(181, 209, 233);
 }

@@ -278,12 +278,12 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
-        headlineAnchorTag.onclick = "sendAlert()";
+        headlineAnchorTag.onclick = 'goToListWords(value)';
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
-        deleteBtn.onclick = 'sendTestAlert()';
+        deleteBtn.onclick = 'deleteHeadline()';
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         headlineCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
@@ -291,12 +291,26 @@ function listHeadlines() {
     })
 }
 
-
-
-function sendTestAlert() {
-    alert("You deleted that headline. (Just imagine you did)");
+function goToListWords(headlineToShow) {
+    localStorage.setItem("setToShow", headlineToShow);
+    document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
 
-function sendAlert() {
-    alert("You are being redirected.");
+function deleteHeadline() {
+    alert("Are you sure you want to delete this headline?");
+}
+
+function listWords() {
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    obj_setToShow = obj_allSets[localStorage.getItem('setToShow')];
+    const wordsTable = document.getElementById("headline-table");
+    Object.keys(obj_setToShow).forEach((key) => {
+        console.log(key);
+        let newWordRow = document.createElement("tr");
+        let newWordCell = document.createElement("td");
+        let explanationCell = document.createElement("td");
+        let binCell = document.createElement("td");
+        newWordCell.innerText = key;
+        explanationCell.innerText = 
+    })
 }
