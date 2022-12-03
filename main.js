@@ -8,6 +8,7 @@ var words_done = 0;
 var correct_answers = 0;
 var yourWord;
 var yourExplanation;
+var btnNum = 0;
 
 function openPage(url){
     document.location.href = url;
@@ -270,6 +271,8 @@ function another(){
 
 //Set the items of the headline table.
 function listHeadlines() {
+    //Variable to count the number of deleteBtns that have been created.
+    btnNum += 1;
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     const headlineTable = document.getElementById("headline-table-body");
     Object.keys(obj_allSets).forEach((value) => {
@@ -286,7 +289,7 @@ function listHeadlines() {
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
-        deleteBtn.onclick = 'deleteHeadline()';
+        deleteBtn.id = 'icon-btn' + String(btnNum);
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         headlineCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
@@ -294,13 +297,34 @@ function listHeadlines() {
     })
 }
 
+//JQuery code to see what button was clicked. If that button was icon-btn, then retrieve headline.
+$(document).click(function(event) {
+    if($(event.target).className == 'icon-btn') {
+        var headline = $(event.target).parentElement.parentElement.children[0].firstChild;
+        console.log(headline);
+        localStorage.setItem("headlineToDelete", headline);
+        deleteHeadline();
+    }
+})
+
+
 function goToListWords(headlineToShow) {
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
 
 function deleteHeadline() {
-    alert("Are you sure you want to delete this headline?");
+    let confirmDelete = confirm("Are you sure you want to delete this set?");
+    if(confirmDelete == true) {
+        let setToDelete = localStorage.getItem("headlineToDelete");
+        obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+        delete obj_allSets[setToDelete];
+        console.log(obj_allSets);
+    } else {
+        document.location.href = 'https://asossosaror.github.io/study-glossary/changeHeadline.html';
+        return;
+    }
+    //headline = document.getElementById("icon-btn1").parentElement.parentElement.children[0].firstChild;
 }
 
 function deletePair() {

@@ -25,16 +25,19 @@
                     <tr>
                         <td>Hello</td>
                         <td>Hej</td>
-                        <td><button class="icon-btn"><span class='material-symbols-outlined'>delete</span></button></td>
+                        <td><button class="icon-btn" id="icon-btn1"><span class='material-symbols-outlined'>delete</span></button></td>
                     </tr>
                     <tr>
                         <td>Now</td>
                         <td>Nu</td>
-                        <td><button class="icon-btn"><span class='material-symbols-outlined'>delete</span></button></td>
+                        <td><button class="icon-btn" id="icon-btn2"><span class='material-symbols-outlined'>delete</span></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <script>
+        console.log(document.getElementById("icon-btn1").parentElement.parentElement.children[0].firstChild);
+    </script>
 </body>
 </html>
