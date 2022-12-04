@@ -38,6 +38,8 @@ function onLoadRedirector() {
         hideTwoButtons();
     } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeHeadline.html') {
         listHeadlines();
+    } else if(wondow.location.href == 'https://asossosaror.github.io/study-glossary/changeWords.html') {
+        listWords();
     }
 }
 
@@ -309,6 +311,7 @@ function goToListWords(btnId, btnClass) {
     console.log(btnId);
     console.log(btnClass);
     let headlineToShow = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
+    console.log("Headline to show: " + headlineToShow);
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
