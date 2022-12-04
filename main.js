@@ -38,7 +38,7 @@ function onLoadRedirector() {
         hideTwoButtons();
     } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeHeadline.html') {
         listHeadlines();
-    } else if(wondow.location.href == 'https://asossosaror.github.io/study-glossary/changeWords.html') {
+    } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeWords.html') {
         listWords();
     }
 }
