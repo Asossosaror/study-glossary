@@ -290,6 +290,7 @@ function listHeadlines() {
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
+        deleteBtn.onclick = 'iconBtnClick(this.id, this.className)';
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         headlineCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
@@ -297,16 +298,14 @@ function listHeadlines() {
     })
 }
 
-//JQuery code to see what button was clicked. If that button was icon-btn, then retrieve headline.
-$(document).click(function(event) {
-    if($(event.target).className == 'icon-btn') {
-        var headline = $(event.target).parentElement.parentElement.children[0].firstChild;
-        console.log(headline);
-        localStorage.setItem("headlineToDelete", headline);
-        deleteHeadline();
-    }
-})
-
+function iconBtnClick(btnId, btnClass) {
+    console.log(btnId);
+    console.log(btnClass);
+    var headline = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
+    console.log(headline);
+    localStorage.setItem("headlineToDelete", headline);
+    deleteHeadline();
+}
 
 function goToListWords(headlineToShow) {
     localStorage.setItem("setToShow", headlineToShow);
