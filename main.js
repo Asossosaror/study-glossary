@@ -308,6 +308,7 @@ function iconBtnClick(btnId, btnClass) {
 function goToListWords(btnId, btnClass) {
     console.log(btnId);
     console.log(btnClass);
+    let headlineToShow = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }

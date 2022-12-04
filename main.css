@@ -193,8 +193,19 @@ th, td {
 
 .test-table thead tr th:nth-last-child(1) {
     text-align: right;
+    width: 10%;
 }
 
 .test-table tbody tr:last-of-type {
     border-bottom: 3px solid rgb(126, 180, 228);
+}
+
+.test-table tbody tr td:nth-last-child(2),
+.test-table thead tr th:nth-last-child(2) {
+    width: 25%;
+    text-align: right;
+}
+
+.test-table thead tr th:nth-last-child(1) {
+
 }
