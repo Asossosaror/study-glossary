@@ -336,24 +336,8 @@ function deletePair() {
 
 function listWords() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    obj_setToShow = obj_allSets[localStorage.getItem('setToShow')];
+    headlineToShow = localStorage.getItem("setToShow");
+    console.log(headlineToShow);
+    obj_setToShow = obj_allSets[headlineToShow];
     const wordsTable = document.getElementById("headline-table");
-    Object.keys(obj_setToShow).forEach((key) => {
-        console.log(key);
-        let newWordRow = document.createElement("tr");
-        let newWordCell = document.createElement("td");
-        let explanationCell = document.createElement("td");
-        let binCell = document.createElement("td");
-        newWordCell.innerText = key;
-        explanationCell.innerText = obj_setToShow[key];
-        let deleteBtn = document.createElement("button");
-        deleteBtn.className = 'icon-btn';
-        deleteBtn.onclick = 'deletePair()';
-        deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
-        binCell.appendChild(deleteBtn);
-        newWordRow.appendChild(newWordCell);
-        newWordRow.appendChild(explanationCell);
-        newWordRow.appendChild(binCell);
-        wordsTable.appendChild(newWordRow);
-    })
 }
