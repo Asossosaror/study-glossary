@@ -281,11 +281,9 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
-        function valueGoToListWords() {
-            goToListWords(value);
-        }
-        headlineAnchorTag.onclick = 'valueGoToListWords()';
+        headlineAnchorTag.onclick = 'goToListWords(this.id, this.className)';
         headlineAnchorTag.className = 'headline-anchor-tag';
+        headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
@@ -307,7 +305,9 @@ function iconBtnClick(btnId, btnClass) {
     deleteHeadline();
 }
 
-function goToListWords(headlineToShow) {
+function goToListWords(btnId, btnClass) {
+    console.log(btnId);
+    console.log(btnClass);
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
