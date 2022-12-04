@@ -281,14 +281,14 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
-        headlineAnchorTag.onclick = alert("This should open a page."); //goToListWords(this.id, this.className)
+        headlineAnchorTag.onclick = "goToListWords(this.id, this.className)";
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
-        deleteBtn.onclick = iconBtnClick(this.id, this.className);
+        deleteBtn.onclick = "iconBtnClick(this.id, this.className)";
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         headlineCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
