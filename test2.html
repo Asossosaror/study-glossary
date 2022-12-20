@@ -11,22 +11,23 @@
     <a href="#">Hi there</a>
 
     <script>
-        
-
-        const tag = document.createElement("a");
-        tag.innerText = "Hello world!";
-        tag.id = "a-tag";
-        tag.href = "#";
-        document.body.appendChild(tag);
+        for(let i = 0; i <= 10; i++){
+            const tag = document.createElement("a");
+            tag.innerText = "Hello world!";
+            tag.className = "a-tag";
+            tag.id = "a-tag" + String(i);
+            tag.href = "#";
+            document.body.appendChild(tag);
+        }
 
         function print() {
             console.log("a-tag was clicked");
         }
 
-        $("a").click(function(e) {
+        $(".a-tag").click(function(e) {
             console.log("a-tag was clicked")
             console.log(e.target.id);
-            document.location.href = "https://google.com/"
+            //document.location.href = "https://google.com/"
         })
     </script>
 </body>
