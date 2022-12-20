@@ -29,13 +29,6 @@ document.addEventListener("keydown", function(event){
 
 window.addEventListener('load', onLoadRedirector, false);
 
-// Jquery to get the ID of the element that was clicked if that was an anchor tag in the headline list
-$("a").click(function(event) {
-    console.log(event.target.id);
-    console.log(document.getElementById(event.target.id).innerText);
-    document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
-});
-
 function onLoadRedirector() {
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         onPageLoad_studyGlossary();
@@ -292,6 +285,7 @@ function listHeadlines() {
         headlineAnchorTag.innerText = value;
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
+        headlineAnchorTag.href = "#";
         headlineCell.appendChild(headlineAnchorTag);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
@@ -347,3 +341,10 @@ function listWords() {
     obj_setToShow = obj_allSets[headlineToShow];
     const wordsTable = document.getElementById("headline-table");
 }
+
+// Jquery to get the ID of the element that was clicked if that was an anchor tag in the headline list
+$("a").click(function(event) {
+    console.log(event.target.id);
+    console.log(document.getElementById(event.target.id).innerText);
+    document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
+});
