@@ -29,13 +29,6 @@ document.addEventListener("keydown", function(event){
 
 window.addEventListener('load', onLoadRedirector, false);
 
-// Jquery to get the ID of the element that was clicked if that was an anchor tag in the headline list
-$("a").click(function(event) {
-    console.log(event.target.id);
-    console.log(document.getElementById(event.target.id).innerText);
-    document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
-});
-
 function onLoadRedirector() {
     if(document.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html') {
         onPageLoad_studyGlossary();
@@ -290,6 +283,7 @@ function listHeadlines() {
         let headlineCell = document.createElement("td");
         let headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
+        headlineAnchorTag.setAttribute("onClick", "goToListWords(this.id, this.className)");
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
         headlineCell.appendChild(headlineAnchorTag);
@@ -313,6 +307,15 @@ function iconBtnClick(btnId, btnClass) {
     deleteHeadline();
 }
 
+function goToListWords(btnId, btnClass) {
+    console.log(btnId);
+    console.log(btnClass);
+    let headlineToShow = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
+    console.log("Headline to show: " + headlineToShow);
+    localStorage.setItem("setToShow", headlineToShow);
+    document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
+}
+
 function deleteHeadline() {
     let confirmDelete = confirm("Are you sure you want to delete this set?");
     if(confirmDelete == true) {
@@ -329,15 +332,6 @@ function deleteHeadline() {
 
 function deletePair() {
     alert("Are you sure you want to delete this pair?");
-}
-
-function goToListWords(btnId, btnClass) {
-    console.log(btnId);
-    console.log(btnClass);
-    let headlineToShow = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
-    console.log("Headline to show: " + headlineToShow);
-    localStorage.setItem("setToShow", headlineToShow);
-    document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
 
 function listWords() {
