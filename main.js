@@ -279,15 +279,15 @@ function listHeadlines() {
     const headlineTable = document.getElementById("headline-table-body");
     Object.keys(obj_allSets).forEach((value) => {
         console.log(value);
-        let newHeadlineRow = document.createElement("tr");
-        let headlineCell = document.createElement("td");
-        let headlineAnchorTag = document.createElement("a");
+        const newHeadlineRow = document.createElement("tr");
+        const headlineCell = document.createElement("td");
+        const headlineAnchorTag = document.createElement("a");
         headlineAnchorTag.innerText = value;
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
         headlineAnchorTag.href = "#";
         headlineCell.appendChild(headlineAnchorTag);
-        let deleteBtn = document.createElement("button");
+        const deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
         deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
