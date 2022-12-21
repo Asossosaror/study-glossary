@@ -27,6 +27,14 @@ document.addEventListener("keydown", function(event){
     }
 });
 
+document.getElementsByClassName("headlineAnchorTag").addEventListener("click", testEventlistener);
+
+function testEventlistener(e) {
+    console.log("an a-tag was clicked");
+    console.log(e.target.id);
+    openPage("https://www.google.com/");
+}
+
 window.addEventListener('load', onLoadRedirector, false);
 
 function onLoadRedirector() {
@@ -341,12 +349,3 @@ function listWords() {
     obj_setToShow = obj_allSets[headlineToShow];
     const wordsTable = document.getElementById("headline-table");
 }
-
-// Jquery to get the ID of the element that was clicked if that was an anchor tag in the headline list
-$(document).ready(function() {
-    $("a").click(function(e) {
-        console.log("an a-tag was clicked");
-        console.log(e.target.id);
-        openPage('https://www.google.com/');
-    })
-})
