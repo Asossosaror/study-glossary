@@ -286,6 +286,7 @@ function listHeadlines() {
         headlineAnchorTag.className = 'headline-anchor-tag';
         headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
         headlineAnchorTag.href = "#";
+        headlineAnchorTag.onclick = "print()";
         headlineCell.appendChild(headlineAnchorTag);
         const deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
@@ -342,6 +343,6 @@ function listWords() {
     const wordsTable = document.getElementById("headline-table");
 }
 
-$("a").click(function(element) {
+function print() {
     console.log("an a-tag was clicked");
-})
+}
