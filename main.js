@@ -343,12 +343,10 @@ function listWords() {
 }
 
 // Jquery to get the ID of the element that was clicked if that was an anchor tag in the headline list
-while(true) {
-    $(document).ready(function() {
-        $(".headline-anchor-tag").click(function(event) {
-            console.log(event.target.id);
-            console.log(document.getElementById(event.target.id).innerText);
-            document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
-        });
-    });
-}
+$(document).ready(function() {
+    $("a").click(function(e) {
+        console.log("an a-tag was clicked");
+        console.log(e.target.id);
+        openPage('https://www.google.com/');
+    })
+})
