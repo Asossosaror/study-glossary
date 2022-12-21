@@ -324,9 +324,9 @@ function deletePair() {
     alert("Are you sure you want to delete this pair?");
 }
 
-function goToListWords(btnId, btnClass) {
-    console.log(btnId);
-    console.log(btnClass);
+function goToListWords(cellId, cellClass) {
+    console.log(cellId);
+    console.log(cellClass);
     let headlineToShow = document.getElementById(cellId).innerText;
     console.log("Headline to show: " + headlineToShow);
     localStorage.setItem("setToShow", headlineToShow);
