@@ -27,16 +27,6 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-document.addEventListener("click", testEventlistener);
-
-function testEventlistener(e) {
-    if(e.target.className == "headlineAnchorTag") {
-        console.log("an a-tag was clicked");
-        console.log(e.target.id);
-        openPage("https://www.google.com/");
-    }
-}
-
 window.addEventListener('load', onLoadRedirector, false);
 
 function onLoadRedirector() {
@@ -351,3 +341,7 @@ function listWords() {
     obj_setToShow = obj_allSets[headlineToShow];
     const wordsTable = document.getElementById("headline-table");
 }
+
+$("a").click(function(element) {
+    console.log("an a-tag was clicked");
+})
