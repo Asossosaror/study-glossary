@@ -131,7 +131,7 @@ th, td {
   'opsz' 48
 }
 
-.del-headline-btn {
+.del-headline-btn, .del-pair-btn {
     all: unset;
     border-radius: 2px;
     background-color: inherit;
@@ -140,11 +140,11 @@ th, td {
     float: right;
 }
 
-.del-headline-btn:hover {
+.del-headline-btn:hover, .del-pair-btn:hover {
     background-color: rgb(126, 180, 228);
 }
 
-.del-headline-btn:active {
+.del-headline-btn:active, .del-pair-btn:active {
     background-color: rgb(55, 114, 165);
 }
 
