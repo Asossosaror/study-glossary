@@ -286,12 +286,14 @@ function listHeadlines() {
         headlineCell.id = "headline-cell" + String(btnNum);
         headlineCell.setAttribute("onClick", "goToListWords(this.id, this.className)");
         headlineCell.innerText = value;
+        let deleteBtnCell = document.createElement("td");
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
         deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
-        headlineCell.appendChild(deleteBtn);
+        deleteBtnCell.appendChild(deleteBtn);
+        headlineCell.appendChild(deleteBtnCell);
         newHeadlineRow.appendChild(headlineCell);
         headlineTable.appendChild(newHeadlineRow);
     })
@@ -327,7 +329,7 @@ function deletePair() {
 function goToListWords(cellId, cellClass) {
     console.log(cellId);
     console.log(cellClass);
-    let headlineToShow = document.getElementById(cellId).innerText - " delete";
+    let headlineToShow = document.getElementById(cellId).innerText;
     console.log("Headline to show: " + headlineToShow);
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
