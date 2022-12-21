@@ -288,8 +288,8 @@ function listHeadlines() {
         headlineCell.innerText = value;
         let deleteBtnCell = document.createElement("td");
         let deleteBtn = document.createElement("button");
-        deleteBtn.className = 'icon-btn';
-        deleteBtn.id = 'icon-btn' + String(btnNum);
+        deleteBtn.className = 'del-headline-btn';
+        deleteBtn.id = 'del-headline-btn' + String(btnNum);
         deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         deleteBtnCell.appendChild(deleteBtn);
@@ -331,14 +331,30 @@ function goToListWords(cellId, cellClass) {
     console.log(cellClass);
     let headlineToShow = document.getElementById(cellId).innerText;
     console.log("Headline to show: " + headlineToShow);
-    localStorage.setItem("setToShow", headlineToShow);
+    localStorage.setItem("headlineToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
 }
 
 function listWords() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    headlineToShow = localStorage.getItem("setToShow");
-    console.log(headlineToShow);
+    headlineToShow = localStorage.getItem("headlineToShow");
+    console.log("Headline to show: " + headlineToShow);
     obj_setToShow = obj_allSets[headlineToShow];
-    const wordsTable = document.getElementById("headline-table");
+    let array_newWords = Object.keys(obj_setToShow);
+    let array_explanations = Object.values(obj_setToShow);
+    for(i = 0; i < array_newWords.length; i++) {
+        let wordRow = document.createElement("tr");
+        let newWordCell = document.createElement("td");
+        newWordCell.className = "new-word-cell";
+        newWordCell.id = "new-word-cell" + String(i);
+        let explanationCell = document.createElement("td");
+        explanationCell.className = "explanation-cell";
+        explanationCell.id = "explanation-cell" + String(i);
+        let deleteBtnCell = document.createElement("td");
+        let deleteBtn = document.createElement("button");
+        deleteBtn.className = 'del-pair-btn';
+        deleteBtn.id = 'del-pair-btn' + String(btnNum);
+        deleteBtn.setAttribute("onClick", "console.log('del-btn was clicked');");
+        deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
+    }
 }
