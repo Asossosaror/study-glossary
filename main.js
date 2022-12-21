@@ -282,12 +282,10 @@ function listHeadlines() {
         btnNum += 1;
         let newHeadlineRow = document.createElement("tr");
         let headlineCell = document.createElement("td");
-        let headlineBtn = document.createElement("button");
-        headlineBtn.innerText = value;
-        headlineBtn.className = 'headline-btn';
-        headlineBtn.id = 'headline-btn' + String(btnNum);
-        headlineBtn.setAttribute("onClick", "goToListWords(this.id, this.className)");
-        headlineCell.appendChild(headlineBtn);
+        headlineCell.className = "headline-cell";
+        headlineCell.id = "headline-cell" + String(btnNum);
+        headlineCell.setAttribute("onClick", "goToListWords(this.id, this.className)");
+        headlineCell.innerText = value;
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
@@ -329,7 +327,7 @@ function deletePair() {
 function goToListWords(btnId, btnClass) {
     console.log(btnId);
     console.log(btnClass);
-    let headlineToShow = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
+    let headlineToShow = document.getElementById(cellId).innerText;
     console.log("Headline to show: " + headlineToShow);
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";

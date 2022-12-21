@@ -11,7 +11,43 @@
 <body>
     <a href="#">Hi there</a>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    Headline
+                </td>
+            </tr>
+        </thead>
+        <tbody id="body">
+            <tr>
+                <td>
+                    Headline1
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Headline2
+                </td>
+            </tr>
+            <tr>
+                <td class="head" id="head3">
+                    Headline3
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     <script>
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        td.innerText = "This is headline 4";
+        td.className = "head";
+        tr.appendChild(td);
+        let tbody = document.getElementById("body");
+        tbody.appendChild(tr);
+
+
         const table = document.createElement("table");
         for(let i = 0; i <= 10; i++){
             const row = document.createElement("tr");
@@ -33,6 +69,10 @@
 
         $("button").click(function(e) {
             console.log("a-tag was clicked");
+            console.log(e.target.id);
+        })
+
+        $(".head").click(function(e) {
             console.log(e.target.id);
         })
     </script>
