@@ -293,8 +293,8 @@ function listHeadlines() {
         deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         deleteBtnCell.appendChild(deleteBtn);
-        newHeadlineRow.appendChild(deleteBtnCell);
         newHeadlineRow.appendChild(headlineCell);
+        newHeadlineRow.appendChild(deleteBtnCell);
         headlineTable.appendChild(newHeadlineRow);
     })
 }
