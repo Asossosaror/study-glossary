@@ -274,21 +274,19 @@ function another(){
 //Set the items of the headline table.
 function listHeadlines() {
     //Variable to count the number of deleteBtns that have been created.
-    btnNum += 1;
+    btnNum = 0;
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     let headlineTable = document.getElementById("headline-table-body");
     Object.keys(obj_allSets).forEach((value) => {
         console.log(value);
+        btnNum += 1;
         let newHeadlineRow = document.createElement("tr");
         let headlineCell = document.createElement("td");
-        headlineCell.className = "headline-cell";
-        headlineCell.id = "headline-cell" + String(btnNum);
         let headlineBtn = document.createElement("button");
         headlineBtn.innerText = value;
         headlineBtn.className = 'headline-btn';
         headlineBtn.id = 'headline-btn' + String(btnNum);
-        headlineBtn.href = "#";
-        headlineBtn.onclick = "print()";
+        headlineBtn.setAttribute("onClick", "goToListWords(this.id, this.className)");
         headlineCell.appendChild(headlineBtn);
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
@@ -344,15 +342,3 @@ function listWords() {
     obj_setToShow = obj_allSets[headlineToShow];
     const wordsTable = document.getElementById("headline-table");
 }
-
-$(".headline-btn").click(function(headline) {
-    console.log("headline was clicked");
-    console.log(headline.target.id);
-    document.location.href = "https://www.google.com/";
-})
-
-$(".headline-cell").click(function(headlineCell) {
-    console.log("headline was clicked");
-    console.log(headlineCell.target.id);
-    document.location.href = "https://www.google.com/";
-})
