@@ -281,13 +281,13 @@ function listHeadlines() {
         console.log(value);
         const newHeadlineRow = document.createElement("tr");
         const headlineCell = document.createElement("td");
-        const headlineAnchorTag = document.createElement("a");
-        headlineAnchorTag.innerText = value;
-        headlineAnchorTag.className = 'headline-anchor-tag';
-        headlineAnchorTag.id = 'headline-anchor-tag' + String(btnNum);
-        headlineAnchorTag.href = "#";
-        headlineAnchorTag.onclick = "print()";
-        headlineCell.appendChild(headlineAnchorTag);
+        const headlineBtn = document.createElement("button");
+        headlineBtn.innerText = value;
+        headlineBtn.className = 'headline-btn';
+        headlineBtn.id = 'headline-btn' + String(btnNum);
+        headlineBtn.href = "#";
+        headlineBtn.onclick = "print()";
+        headlineCell.appendChild(headlineBtn);
         const deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
@@ -343,6 +343,8 @@ function listWords() {
     const wordsTable = document.getElementById("headline-table");
 }
 
-function print() {
-    console.log("an a-tag was clicked");
-}
+$(".headline-btn").click(function(headline) {
+    console.log("headline was clicked");
+    console.log(headline.target.id);
+    document.location.href = "https://www.google.com/";
+})

@@ -16,7 +16,7 @@
         for(let i = 0; i <= 10; i++){
             const row = document.createElement("tr");
             const td = document.createElement("td");
-            const tag = document.createElement("a");
+            const tag = document.createElement("button");
             tag.innerText = "Hello world!";
             tag.className = "a-tag";
             tag.id = "a-tag" + String(i);
@@ -31,7 +31,7 @@
             console.log("a-tag was clicked");
         }
 
-        $("a").click(function(e) {
+        $("button").click(function(e) {
             console.log("a-tag was clicked");
             console.log(e.target.id);
         })
