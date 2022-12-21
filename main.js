@@ -342,19 +342,28 @@ function listWords() {
     obj_setToShow = obj_allSets[headlineToShow];
     let array_newWords = Object.keys(obj_setToShow);
     let array_explanations = Object.values(obj_setToShow);
+    let wordsTable = document.getElementById("words-table-body");
     for(i = 0; i < array_newWords.length; i++) {
         let wordRow = document.createElement("tr");
         let newWordCell = document.createElement("td");
         newWordCell.className = "new-word-cell";
         newWordCell.id = "new-word-cell" + String(i);
+        newWordCell.innerText = array_newWords[i];
         let explanationCell = document.createElement("td");
         explanationCell.className = "explanation-cell";
         explanationCell.id = "explanation-cell" + String(i);
+        explanationCell.innerText = array_explanations[i];
         let deleteBtnCell = document.createElement("td");
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'del-pair-btn';
         deleteBtn.id = 'del-pair-btn' + String(btnNum);
         deleteBtn.setAttribute("onClick", "console.log('del-btn was clicked');");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
+        // Add these cells to the row and then to the actual table.
+        wordRow.appendChild(newWordCell);
+        wordRow.appendChild(explanationCell);
+        deleteBtnCell.appendChild(deleteBtn);
+        wordRow.appendChild(deleteBtnCell);
+        wordsTable.appendChild(wordRow);
     }
 }
