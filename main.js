@@ -327,7 +327,7 @@ function deletePair() {
 function goToListWords(cellId, cellClass) {
     console.log(cellId);
     console.log(cellClass);
-    let headlineToShow = document.getElementById(cellId).innerText;
+    let headlineToShow = document.getElementById(cellId).innerText - " delete";
     console.log("Headline to show: " + headlineToShow);
     localStorage.setItem("setToShow", headlineToShow);
     document.location.href = "https://asossosaror.github.io/study-glossary/changeWords.html";
