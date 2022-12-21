@@ -276,19 +276,21 @@ function listHeadlines() {
     //Variable to count the number of deleteBtns that have been created.
     btnNum += 1;
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    const headlineTable = document.getElementById("headline-table-body");
+    let headlineTable = document.getElementById("headline-table-body");
     Object.keys(obj_allSets).forEach((value) => {
         console.log(value);
-        const newHeadlineRow = document.createElement("tr");
-        const headlineCell = document.createElement("td");
-        const headlineBtn = document.createElement("button");
+        let newHeadlineRow = document.createElement("tr");
+        let headlineCell = document.createElement("td");
+        headlineCell.className = "headline-cell";
+        headlineCell.id = "headline-cell" + String(btnNum);
+        let headlineBtn = document.createElement("button");
         headlineBtn.innerText = value;
         headlineBtn.className = 'headline-btn';
         headlineBtn.id = 'headline-btn' + String(btnNum);
         headlineBtn.href = "#";
         headlineBtn.onclick = "print()";
         headlineCell.appendChild(headlineBtn);
-        const deleteBtn = document.createElement("button");
+        let deleteBtn = document.createElement("button");
         deleteBtn.className = 'icon-btn';
         deleteBtn.id = 'icon-btn' + String(btnNum);
         deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
@@ -346,5 +348,11 @@ function listWords() {
 $(".headline-btn").click(function(headline) {
     console.log("headline was clicked");
     console.log(headline.target.id);
+    document.location.href = "https://www.google.com/";
+})
+
+$(".headline-cell").click(function(headlineCell) {
+    console.log("headline was clicked");
+    console.log(headlineCell.target.id);
     document.location.href = "https://www.google.com/";
 })

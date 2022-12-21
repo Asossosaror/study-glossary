@@ -209,3 +209,11 @@ th, td {
 .headline-btn {
     all: unset;
 }
+
+.headline-btn:hover {
+    color: blue;
+}
+
+.headline-btn:active {
+    color: lawngreen;
+}
