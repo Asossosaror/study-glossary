@@ -27,12 +27,14 @@ document.addEventListener("keydown", function(event){
     }
 });
 
-document.getElementsByClassName("headlineAnchorTag").addEventListener("click", testEventlistener);
+document.addEventListener("click", testEventlistener);
 
 function testEventlistener(e) {
-    console.log("an a-tag was clicked");
-    console.log(e.target.id);
-    openPage("https://www.google.com/");
+    if(e.target.className == "headlineAnchorTag") {
+        console.log("an a-tag was clicked");
+        console.log(e.target.id);
+        openPage("https://www.google.com/");
+    }
 }
 
 window.addEventListener('load', onLoadRedirector, false);
