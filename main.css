@@ -138,6 +138,11 @@ input:focus::placeholder{
     position: absolute;
 }
 
+#choose-new-word,
+#choose-explanation {
+    visibility: hidden;
+}
+
 .table {
     border-collapse: collapse;
     border-radius: 5px;
@@ -205,49 +210,69 @@ th, td {
     border-bottom: 3px solid black;
 }
 
-
-
-.test-table {
-    border-collapse: collapse;
-    border-radius: 5px;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    background-color: rgb(216, 234, 250);
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.20);
+.link {
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: inherit;
+    padding: 0;
+    padding-left: 10px;
+    color: #edf0f1;
 }
 
-.test-table thead tr th {
-    background-color: rgb(148, 201, 248);
+.dropdown.active > .link,
+.link:hover {
+    font-weight: bold;
 }
 
-.test-table tbody tr:hover {
-    background-color: rgb(186, 221, 252);
+.dropdown {
+    position: relative;
 }
 
-.test-table thead tr th:nth-last-child(1) {
-    text-align: right;
-    width: 10%;
+.dropdown-menu {
+    position: absolute;
+    left: 20px;
+    top: calc(100% + 0,25rem);
+    background-color: #3d4247;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.test-table tbody tr:last-of-type {
-    border-bottom: 3px solid rgb(126, 180, 228);
+.dropdown.active > .link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
 }
 
-.test-table tbody tr td:nth-last-child(2),
-.test-table thead tr th:nth-last-child(2) {
-    width: 25%;
-    text-align: right;
+.information-grid {
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    gap: 2rem;
 }
 
-.headline-btn {
-    all: unset;
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
 }
 
-.headline-btn:hover {
-    color: blue;
-}
-
-.headline-btn:active {
-    color: lawngreen;
+.dropdown-btn {
+    padding: 9px 25px;
+    margin-top: 10px;
+    margin-left: 15px;
+    background-color: rgb(6, 158, 218);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
 }

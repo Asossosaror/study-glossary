@@ -3,6 +3,7 @@
 <head>
     <title>AG Glossary Study</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/b9c172c354.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="main.js"></script>
     <link rel="shortcut icon" href="images/icon.png" type="image/png">
@@ -26,6 +27,20 @@
             <button class="btn" id="random-set-btn" onclick="chooseRandomSet()">Random set</button>
             <button class="btn" id="choose-new-word" onclick="newWordOrAnswer('newWord')">Type the word you're learning</button>
             <button class="btn" id="choose-explanation" onclick="newWordOrAnswer('answer')">Type explanation</button>
+            <div class="header">
+                <div class="dropdown" data-dropdown>
+                    <button class="link dropdown-btn" data-dropdown-button>Choose set  <i class="fa-solid fa-angle-down"></i></button>
+                    <div class="dropdown-menu information-grid">
+                        <div>
+                            <div class="dropdown-links">
+                                <a href="#" class="link">Headline 1</a>
+                                <a href="#" class="link">Second headline</a>
+                                <a href="#" class="link"> This is a very long headline</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <footer>

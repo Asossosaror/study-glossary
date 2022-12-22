@@ -1,30 +1,23 @@
-let AnchorTag = document.createElement("a");
-AnchorTag.innerText = "a-tag";
-AnchorTag.onclick = "goToListWords(this.id, this.className)";
-AnchorTag.className = 'headline-anchor-tag';
-AnchorTag.id = 'anchor-tag';
-document.getElementById("the-cell").appendChild(AnchorTag);
+// When an element is clicked
+document.addEventListener("click", e => {
+    const isDropdown = e.target.matches("[data-dropdown-button]");
+    if(!isDropdown && e.target.closest("[data-dropdown]") != null) {
+        return;
+    }
+    // if the clicked element is the dropdown, toggle the active-mode.
+    let currentDropdown;
+    if(isDropdown) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+    }
 
-function iconBtnClick(btnId) {
-    console.log(btnId);
-    console.log(document.getElementById(btnId).parentElement.parentElement.children[0].firstChild);
-}
-
-Object.keys(obj_setToShow).forEach((key) => {
-    console.log(key);
-    let newWordRow = document.createElement("tr");
-    let newWordCell = document.createElement("td");
-    let explanationCell = document.createElement("td");
-    let binCell = document.createElement("td");
-    newWordCell.innerText = key;
-    explanationCell.innerText = obj_setToShow[key];
-    let deleteBtn = document.createElement("button");
-    deleteBtn.className = 'icon-btn';
-    deleteBtn.onclick = 'deletePair()';
-    deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
-    binCell.appendChild(deleteBtn);
-    newWordRow.appendChild(newWordCell);
-    newWordRow.appendChild(explanationCell);
-    newWordRow.appendChild(binCell);
-    wordsTable.appendChild(newWordRow);
+    // find all the active elements with the data-type '[data-dropdown]'. 
+    // Do nothing if it is the current dropdown.
+    // If it is another dropdown, close it.
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+        if(dropdown === currentDropdown){
+            return;
+        }
+        dropdown.classList.remove("active");
+    })
 })
