@@ -382,6 +382,7 @@ function deletePair(btnId, btnClass) {
         obj_allSets_serialized = JSON.stringify(obj_allSets);
         localStorage.setItem("obj_allSets", obj_allSets_serialized);
         console.log(obj_allSets);
+        document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
     } else {
         return;
     }
