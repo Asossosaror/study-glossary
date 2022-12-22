@@ -222,7 +222,7 @@ function submitAnswer() {
 }
 
 function resetColorAndText() {
-    document.getElementById("your-answer-input").style.backgroundColor = "rgb(0, 241, 241)";
+    document.getElementById("your-answer-input").style.backgroundColor = "rgb(37, 40, 43)";
     document.getElementById("your-answer-input").value = "";
 }
 
