@@ -97,6 +97,7 @@ function createSet(){
             localStorage.setItem("obj_sets", obj_sets_serialized);
             obj_allSets_serialized = JSON.stringify(obj_allSets);
             localStorage.setItem("obj_allSets", obj_allSets_serialized);
+            document.location.href = 'https://asossosaror.github.io/study-glossary/main.html';
         }
     }
 }
