@@ -61,6 +61,7 @@ function onLoadRedirector() {
         displayResults();
     } else if(document.location.href == 'https://asossosaror.github.io/study-glossary/chooseSet.html') {
         hideTwoButtons();
+        generateDropdown();
     } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeHeadline.html') {
         listHeadlines();
     } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/changeWords.html') {
@@ -153,16 +154,17 @@ function chooseRandomSet(){
     console.log(random_headline);
     var set_to_study = obj_allSets[random_headline];
     console.log(set_to_study);
-    localStorage.setItem("random_headline", random_headline);
+    localStorage.setItem("headline_to_study", random_headline);
     document.getElementById('choose-new-word').style.visibility = 'visible';
     document.getElementById('choose-explanation').style.visibility = 'visible';
     document.getElementById('random-set-btn').style.visibility = 'hidden';
+    document.getElementById('dropdown-btn').style.visibility = 'hidden';
 }
 
 function onPageLoad_studyGlossary(){
     words_done = 0;
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    study_headline = localStorage.getItem("random_headline");
+    study_headline = localStorage.getItem("headline_to_study");
     var entries_array = Object.entries(obj_allSets[study_headline]);
     var entries_array_serialized = JSON.stringify(entries_array);
     localStorage.setItem("entries_array", entries_array_serialized);
@@ -187,7 +189,7 @@ function studyNewWord() {
     console.log("this is the headline: " + study_headline);
     document.getElementById("your-answer-input").focus();
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-    study_headline = localStorage.getItem("random_headline");
+    study_headline = localStorage.getItem("headline_to_study");
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     console.log(entries_array);
     yourWord = entries_array[words_done][0];
@@ -285,6 +287,7 @@ function hideTwoButtons() {
     document.getElementById('choose-new-word').style.visibility = 'hidden';
     document.getElementById('choose-explanation').style.visibility = 'hidden';
     document.getElementById('random-set-btn').style.visibility = 'visible';
+    document.getElementById('dropdown-btn').style.visibility = 'visible';
 }
 
 //Set the items of the headline table.
@@ -402,4 +405,26 @@ function deletePair(btnId, btnClass) {
     } else {
         return;
     }
+}
+
+function generateDropdown() {
+    obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+    let headlines = Object.keys(obj_allSets);
+    for(i = 0; i < headlines.length(); i++) {
+        let parentDiv = document.getElementById("dropdown-links1");
+        let newATag = document.createElement("a");
+        newATag.className = "dropdown-a-tag";
+        newATag.id = "dropdown-a-tag" + String(i);
+        newATag.href = "#";
+        newATag.setAttribute("onClick", "chooseHeadline(this.id)");
+        parentDiv.appendChild(newATag);
+    }
+}
+
+function chooseHeadline(btnId) {
+    let indexHeadline = parseInt(btnId.charAt(btnId.length - 1));
+    let headlineToStudy = Object.keys(obj_allSets)[indexHeadline];
+    localStorage.setItem("headline_to_study", headlineToStudy);
+    console.log(headlineToStudy);
+    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
 }
