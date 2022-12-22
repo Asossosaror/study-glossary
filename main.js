@@ -410,10 +410,10 @@ function deletePair(btnId, btnClass) {
 function generateDropdown() {
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     let headlines = Object.keys(obj_allSets);
-    for(i = 0; i < headlines.length(); i++) {
+    for(i = 0; i < headlines.length; i++) {
         let parentDiv = document.getElementById("dropdown-links1");
         let newATag = document.createElement("a");
-        newATag.innerHTML = headlines[i];
+        newATag.innerText = headlines[i];
         newATag.className = "dropdown-a-tag";
         newATag.id = "dropdown-a-tag" + String(i);
         newATag.href = "#";
