@@ -261,16 +261,6 @@ function hideTwoButtons() {
     document.getElementById('random-set-btn').style.visibility = 'visible';
 }
 
-function testing(){
-    document.getElementById('testp2').innerHTML = localStorage.getItem("obj_allSets");
-}
-
-function another(){
-    var cracked = JSON.parse(localStorage.getItem("obj_allSets"));
-    document.getElementById("testp2").innerHTML = Object.keys(cracked);
-    console.log(Object.keys(cracked).includes("blabla"));
-}
-
 //Set the items of the headline table.
 function listHeadlines() {
     //Variable to count the number of deleteBtns that have been created.
