@@ -414,7 +414,7 @@ function generateDropdown() {
         let parentDiv = document.getElementById("dropdown-links1");
         let newATag = document.createElement("a");
         newATag.innerText = headlines[i];
-        newATag.className = "dropdown-a-tag";
+        newATag.className = "dropdown-a-tag link";
         newATag.id = "dropdown-a-tag" + String(i);
         newATag.href = "#";
         newATag.setAttribute("onClick", "chooseHeadline(this.id)");
