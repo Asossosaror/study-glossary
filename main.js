@@ -427,6 +427,8 @@ function chooseHeadline(btnId) {
     let headlineToStudy = Object.keys(obj_allSets)[indexHeadline];
     localStorage.setItem("headline_to_study", headlineToStudy);
     console.log(headlineToStudy);
+    let dropdown = document.getElementById("dropdown-choice");
+    dropdown.classList.remove("active");
     document.getElementById('choose-new-word').style.visibility = 'visible';
     document.getElementById('choose-explanation').style.visibility = 'visible';
     document.getElementById('random-set-btn').style.visibility = 'hidden';
