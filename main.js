@@ -190,20 +190,20 @@ function submitAnswer() {
     entries_array = JSON.parse(localStorage.getItem("entries_array"));
     if(!answer_is_new_word) {
         if(yourAnswer == yourExplanation){
-            document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(104, 222, 100)";
             correct_answers = correct_answers + 1;
             console.log(correct_answers);
         } else {
-            document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(245, 63, 51)";
             document.getElementById("your-answer-input").value = yourExplanation;
         }
     } else {
         if(yourAnswer == yourWord){
-            document.getElementById("your-answer-input").style.backgroundColor = "rgb(56, 252, 3)";
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(104, 222, 100)";
             correct_answers = correct_answers + 1;
             console.log(correct_answers);
         } else {
-            document.getElementById("your-answer-input").style.backgroundColor = "rgb(255, 80, 80)";
+            document.getElementById("your-answer-input").style.backgroundColor = "rgb(245, 63, 51)";
             document.getElementById("your-answer-input").value = yourWord;
         }
     }

@@ -81,7 +81,8 @@ header {
 }
 
 .center-box {
-    width: fit-content;
+    min-width: 500px;
+    width: 50%;
     margin: auto;
 }
 
@@ -97,6 +98,7 @@ header {
     caret-color: white;
     background-color: #25282b;
     padding: 3px 10px 6px;
+    color: #edf0f1;
 }
 
 label {
@@ -139,8 +141,8 @@ input:focus::placeholder{
 .table {
     border-collapse: collapse;
     border-radius: 5px;
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin-left: 10px;
     overflow: hidden;
     background-color: rgb(59, 64, 68);
     color: #edf0f1;
@@ -151,7 +153,7 @@ td {
 }
 
 th, td {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     text-align: left;
     padding: 7px;
     padding-right: 20px;
