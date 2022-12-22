@@ -413,7 +413,7 @@ function generateDropdown() {
     for(i = 0; i < headlines.length(); i++) {
         let parentDiv = document.getElementById("dropdown-links1");
         let newATag = document.createElement("a");
-        newATag.innerText = headlines[i];
+        newATag.innerHTML = headlines[i];
         newATag.className = "dropdown-a-tag";
         newATag.id = "dropdown-a-tag" + String(i);
         newATag.href = "#";
