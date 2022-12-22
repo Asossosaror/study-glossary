@@ -317,6 +317,7 @@ function deleteHeadline() {
         obj_allSets_serialized = JSON.stringify(obj_allSets);
         localStorage.setItem("obj_allSets", obj_allSets_serialized);
         console.log(obj_allSets);
+        document.location.href = 'https://asossosaror.github.io/study-glossary/changeHeadline.html';
     } else {
         document.location.href = 'https://asossosaror.github.io/study-glossary/changeHeadline.html';
         return;
@@ -372,10 +373,14 @@ function deletePair(btnId, btnClass) {
     if(delPairConfirm === true) {
         let headlineToShow = localStorage.getItem("headlineToShow");
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
-        delete obj_allSets[headlineToShow][btnId];
+        // Get the number at the end of the btn's ID, which is the same as the index of the correlating word.
+        let indexPair = parseInt(btnId.charAt(btnId.length - 1));
+        let delWord = Object.keys(obj_allSets)[indexPair];
+        delete obj_allSets[headlineToShow][delWord];
         obj_allSets_serialized = JSON.stringify(obj_allSets);
         localStorage.setItem("obj_allSets", obj_allSets_serialized);
         console.log(obj_allSets);
+        document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
     } else {
         return;
     }
