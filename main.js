@@ -427,5 +427,8 @@ function chooseHeadline(btnId) {
     let headlineToStudy = Object.keys(obj_allSets)[indexHeadline];
     localStorage.setItem("headline_to_study", headlineToStudy);
     console.log(headlineToStudy);
-    document.location.href = 'https://asossosaror.github.io/study-glossary/studyGlossary.html';
+    document.getElementById('choose-new-word').style.visibility = 'visible';
+    document.getElementById('choose-explanation').style.visibility = 'visible';
+    document.getElementById('random-set-btn').style.visibility = 'hidden';
+    document.getElementById('dropdown-btn').style.visibility = 'hidden';
 }
