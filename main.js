@@ -375,7 +375,7 @@ function deletePair(btnId, btnClass) {
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
         // Get the number at the end of the btn's ID, which is the same as the index of the correlating word.
         let indexPair = parseInt(btnId.charAt(btnId.length - 1));
-        let delWord = Object.keys(obj_allSets)[indexPair];
+        let delWord = Object.keys(obj_allSets[headlineToShow])[indexPair];
         console.log(indexPair);
         console.log(delWord);
         delete obj_allSets[headlineToShow][delWord];
