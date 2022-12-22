@@ -376,11 +376,12 @@ function deletePair(btnId, btnClass) {
         // Get the number at the end of the btn's ID, which is the same as the index of the correlating word.
         let indexPair = parseInt(btnId.charAt(btnId.length - 1));
         let delWord = Object.keys(obj_allSets)[indexPair];
+        console.log(indexPair);
+        console.log(delWord);
         delete obj_allSets[headlineToShow][delWord];
         obj_allSets_serialized = JSON.stringify(obj_allSets);
         localStorage.setItem("obj_allSets", obj_allSets_serialized);
         console.log(obj_allSets);
-        document.location.href = 'https://asossosaror.github.io/study-glossary/changeWords.html';
     } else {
         return;
     }
