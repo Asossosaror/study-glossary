@@ -290,7 +290,7 @@ function listHeadlines() {
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'del-headline-btn';
         deleteBtn.id = 'del-headline-btn' + String(btnNum);
-        deleteBtn.setAttribute("onClick", "iconBtnClick(this.id, this.className)");
+        deleteBtn.setAttribute("onClick", "headlineDelBtnClick(this.id, this.className)");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         deleteBtnCell.appendChild(deleteBtn);
         newHeadlineRow.appendChild(headlineCell);
@@ -299,10 +299,10 @@ function listHeadlines() {
     })
 }
 
-function iconBtnClick(btnId, btnClass) {
+function headlineDelBtnClick(btnId, btnClass) {
     console.log(btnId);
     console.log(btnClass);
-    var headline = document.getElementById(btnId).parentElement.parentElement.children[0].firstChild;
+    var headline = document.getElementById(btnId).parentElement.parentElement.children[0].innerText;
     console.log(headline);
     localStorage.setItem("headlineToDelete", headline);
     deleteHeadline();
@@ -314,16 +314,13 @@ function deleteHeadline() {
         let setToDelete = localStorage.getItem("headlineToDelete");
         obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
         delete obj_allSets[setToDelete];
+        obj_allSets_serialized = JSON.stringify(obj_allSets);
+        localStorage.setItem("obj_allSets", obj_allSets_serialized);
         console.log(obj_allSets);
     } else {
         document.location.href = 'https://asossosaror.github.io/study-glossary/changeHeadline.html';
         return;
     }
-    //headline = document.getElementById("icon-btn1").parentElement.parentElement.children[0].firstChild;
-}
-
-function deletePair() {
-    alert("Are you sure you want to delete this pair?");
 }
 
 function goToListWords(cellId, cellClass) {
@@ -356,8 +353,8 @@ function listWords() {
         let deleteBtnCell = document.createElement("td");
         let deleteBtn = document.createElement("button");
         deleteBtn.className = 'del-pair-btn';
-        deleteBtn.id = 'del-pair-btn' + String(btnNum);
-        deleteBtn.setAttribute("onClick", "console.log('del-btn was clicked');");
+        deleteBtn.id = 'del-pair-btn' + String(i);
+        deleteBtn.setAttribute("onClick", "deletePair(this.id, this.className)");
         deleteBtn.innerHTML = "<span class='material-symbols-outlined'>delete</span>";
         // Add these cells to the row and then to the actual table.
         wordRow.appendChild(newWordCell);
@@ -365,5 +362,21 @@ function listWords() {
         deleteBtnCell.appendChild(deleteBtn);
         wordRow.appendChild(deleteBtnCell);
         wordsTable.appendChild(wordRow);
+    }
+}
+
+function deletePair(btnId, btnClass) {
+    console.log(btnId);
+    console.log(btnClass);
+    let delPairConfirm = confirm("Are you sure you want to delete this pair from the set?");
+    if(delPairConfirm === true) {
+        let headlineToShow = localStorage.getItem("headlineToShow");
+        obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
+        delete obj_allSets[headlineToShow][btnId];
+        obj_allSets_serialized = JSON.stringify(obj_allSets);
+        localStorage.setItem("obj_allSets", obj_allSets_serialized);
+        console.log(obj_allSets);
+    } else {
+        return;
     }
 }
