@@ -395,7 +395,7 @@ function listWords() {
     let addPairBtn = document.createElement("button");
     addPairBtn.className = "add-pair-btn";
     addPairBtn.id = "add-pair-btn";
-    addPairBtn.setAttribute("onClick", "openPage('https://asossosaror.github.io/study-glossary/createPair.html')");
+    addPairBtn.setAttribute("onClick", "openPage('https://asossosaror.github.io/study-glossary/addPair.html')");
     addPairBtn.innerHTML = "<span class='material-symbols-outlined'>add</span>";
     addPairCell.appendChild(addPairBtn);
     addPairRow.appendChild(fillCell1);
@@ -467,7 +467,7 @@ function createNewPair() {
         localStorage.setItem("set_to_add", set_to_add_serialized);
         console.log(JSON.parse(localStorage.getItem("set_to_add")));
     }
-    document.getElementById("textinput_newword").focus();
+    document.getElementById("textinput-newword-update").focus();
 }
 
 function addNewPairs() {
