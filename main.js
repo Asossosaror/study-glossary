@@ -474,9 +474,7 @@ function createNewPair() {
 }
 
 function addNewPairs() {
-    console.log(localStorage.getItem("set_to_add"));
-    console.log(typeof(localStorage.getItem("set_to_add")));
-    let set_to_add = JSON.parse(localStorage.getItem("set_to_add"));
+    set_to_add = JSON.parse(localStorage.getItem("set_to_add")) || {};
     let headlineToShow = localStorage.getItem("headlineToShow");
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     let setToChange = obj_allSets[headlineToShow];
