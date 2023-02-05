@@ -459,13 +459,10 @@ function chooseHeadline(btnId) {
 
 function createNewPair() {
     newWord = document.getElementById('textinput-newword-update');
-    console.log(newWord);
     console.log(newWord.value);
     newExplanation = document.getElementById('textinput-explanation-update');
-    console.log(newExplanation);
     console.log(newExplanation.value);
     if(newWord.value != "" && newExplanation.value != ''){
-        console.log(localStorage.getItem("add_set"));
         add_set = JSON.parse(localStorage.getItem("add_set")) || {};
         add_set[newWord.value] = newExplanation.value;
         console.log(add_set);
@@ -488,4 +485,5 @@ function addNewPairs() {
     localStorage.setItem("obj_allSets", obj_allSets_serialized);
     add_set = {};
     localStorage.setItem("add_set", JSON.stringify(add_set));
+    document.location.href = 'https://asossosaror.github.io/study-glossary/main.html';
 }
