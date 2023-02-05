@@ -24,15 +24,15 @@
     </header>
     <div class="center-box">
         <h1>AG Glossary</h1>
-        <p id="testp2-update">On this page, you can create sets of words that you want to learn.</p>
+        <p id="testp2">On this page, you can create sets of words that you want to learn.</p>
         <div>
-            <form id="pair-form-update" autocomplete="off">
+            <form id="pair-form" autocomplete="off">
                 <label class="newWord_explanation_class" for="textinput_newword">New Word: </label>
-                <input class="newWord_explanation_class text-input" id="textinput-newword-update" type="text" placeholder="Type the new word here" autofocus>
+                <input class="newWord_explanation_class text-input" id="textinput_newword" type="text" placeholder="Type the new word here" autofocus>
                 <label class="newWord_explanation_class" for="textinput_explanation">Explanation: </label>
-                <input class="newWord_explanation_class text-input" id="textinput-explanation-update" type="text" placeholder="Explain the word here"></input>
-                <button class="btn" id="submit-pair-btn-update" type="submit" onclick="createNewPair()">Submit pair</button><br><br>
-                <button class="btn" type="button" onclick="createSet()">Add words</button>
+                <input class="newWord_explanation_class text-input" id="textinput_explanation" type="text" placeholder="Explain the word here"></input>
+                <button class="btn" id="submitPairBtn" type="submit" onclick="createPair()">Submit pair</button><br><br>
+                <button class="btn" type="button" onclick="addNewPairs()">Finish studyset</button>
             </form>
         </div>
     </div>
