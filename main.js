@@ -385,7 +385,7 @@ function listWords() {
     }
     // Add the button at the end of the table so that the user can add new words.
     let addPairRow = document.createElement("tr");
-    let addPairCell = addPairRow.insertCell(2);
+    let addPairCell = addPairRow.insertCell(-1);
     let addPairBtn = document.createElement("button");
     addPairBtn.className = "add-pair-btn";
     addPairBtn.id = "add-pair-btn";
