@@ -392,8 +392,8 @@ function listWords() {
     addPairBtn.setAttribute("onClick", "document.location('https://asossosaror.github.io/study-glossary/createPair.html');")
     addPairBtn.innerHTML = "<span class='material-symbols-outlined'>add</span>"
     addPairCell.appendChild(addPairBtn);
-    wordRow.appendChild(addPairCell);
-    wordsTable.appendChild(wordRow);
+    addPairRow.appendChild(addPairCell);
+    wordsTable.appendChild(addPairRow);
 }
 
 function deletePair(btnId, btnClass) {
