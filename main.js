@@ -385,7 +385,11 @@ function listWords() {
     }
     // Add the button at the end of the table so that the user can add new words.
     let addPairRow = document.createElement("tr");
-    let addPairCell = addPairRow.insertCell(-1);
+    let fillCell1 = document.createElement("td");
+    let fillCell2 = document.createElement("td");
+    fillCell1.className = "fill-cell";
+    fillCell2.className = "fill-cell";
+    let addPairCell = document.createElement("td");
     addPairCell.className = "add-pair-cell";
     addPairCell.id = "add-pair-cell";
     let addPairBtn = document.createElement("button");
@@ -394,6 +398,9 @@ function listWords() {
     addPairBtn.setAttribute("onClick", "openPage('https://asossosaror.github.io/study-glossary/createPair.html')");
     addPairBtn.innerHTML = "<span class='material-symbols-outlined'>add</span>";
     addPairCell.appendChild(addPairBtn);
+    addPairRow.appendChild(fillCell1);
+    addPairRow.appendChild(fillCell2);
+    addPairRow.appendChild(addPairCell);
     wordsTable.appendChild(addPairRow);
 }
 
