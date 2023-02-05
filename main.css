@@ -177,7 +177,7 @@ th, td {
   'opsz' 48
 }
 
-.del-headline-btn, .del-pair-btn {
+.del-headline-btn, .del-pair-btn, .add-pair-btn {
     all: unset;
     border-radius: 2px;
     background-color: inherit;
@@ -186,11 +186,11 @@ th, td {
     float: right;
 }
 
-.del-headline-btn:hover, .del-pair-btn:hover {
+.del-headline-btn:hover, .del-pair-btn:hover, .add-pair-btn:hover {
     background-color: rgb(38, 41, 44);
 }
 
-.del-headline-btn:active, .del-pair-btn:active {
+.del-headline-btn:active, .del-pair-btn:active, .add-pair-btn:active {
     background-color: rgb(21, 21, 22);
 }
 

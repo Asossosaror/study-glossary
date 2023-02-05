@@ -385,14 +385,13 @@ function listWords() {
     }
     // Add the button at the end of the table so that the user can add new words.
     let addPairRow = document.createElement("tr");
-    let addPairCell = document.createElement("td");
+    let addPairCell = addPairRow.insertCell(2);
     let addPairBtn = document.createElement("button");
     addPairBtn.className = "add-pair-btn";
     addPairBtn.id = "add-pair-btn";
-    addPairBtn.setAttribute("onClick", "document.location('https://asossosaror.github.io/study-glossary/createPair.html');")
-    addPairBtn.innerHTML = "<span class='material-symbols-outlined'>add</span>"
+    addPairBtn.setAttribute("onClick", "openPage('https://asossosaror.github.io/study-glossary/createPair.html')");
+    addPairBtn.innerHTML = "<span class='material-symbols-outlined'>add</span>";
     addPairCell.appendChild(addPairBtn);
-    addPairRow.appendChild(addPairCell);
     wordsTable.appendChild(addPairRow);
 }
 
