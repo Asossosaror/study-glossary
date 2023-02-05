@@ -459,29 +459,33 @@ function chooseHeadline(btnId) {
 
 function createNewPair() {
     newWord = document.getElementById('textinput-newword-update');
+    console.log(newWord);
     console.log(newWord.value);
     newExplanation = document.getElementById('textinput-explanation-update');
+    console.log(newExplanation);
     console.log(newExplanation.value);
     if(newWord.value != "" && newExplanation.value != ''){
-        set_to_add = JSON.parse(localStorage.getItem("set_to_add")) || {};
-        set_to_add[newWord.value] = newExplanation.value;
-        console.log(set_to_add);
-        set_to_add_serialized = JSON.stringify(set_to_add);
-        localStorage.setItem("set_to_add", set_to_add_serialized);
-        console.log(JSON.parse(localStorage.getItem("set_to_add")));
+        console.log(localStorage.getItem("add_set"));
+        add_set = JSON.parse(localStorage.getItem("add_set")) || {};
+        add_set[newWord.value] = newExplanation.value;
+        console.log(add_set);
+        add_set_serialized = JSON.stringify(add_set);
+        localStorage.setItem("add_set", add_set_serialized);
+        console.log(JSON.parse(localStorage.getItem("add_set")));
+        
     }
     document.getElementById("textinput-newword-update").focus();
 }
 
 function addNewPairs() {
-    set_to_add = JSON.parse(localStorage.getItem("set_to_add")) || {};
+    add_set = JSON.parse(localStorage.getItem("add_set")) || {};
     let headlineToShow = localStorage.getItem("headlineToShow");
     obj_allSets = JSON.parse(localStorage.getItem("obj_allSets"));
     let setToChange = obj_allSets[headlineToShow];
-    setToChange = Object.assign(setToChange, set_to_add);
+    setToChange = Object.assign(setToChange, add_set);
     obj_allSets[headlineToShow] = setToChange;
     obj_allSets_serialized = JSON.stringify(obj_allSets);
     localStorage.setItem("obj_allSets", obj_allSets_serialized);
-    set_to_add = {};
-    localStorage.setItem("set_to_add", JSON.stringify(set_to_add));
+    add_set = {};
+    localStorage.setItem("add_set", JSON.stringify(add_set));
 }
