@@ -24,6 +24,9 @@ document.addEventListener("keydown", function(event){
         } else if(window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html' || window.location.href == 'https://asossosaror.github.io/study-glossary/studyGlossary.html?'){
             document.getElementById("study-submit-btn").click();
         }
+        else if(window.location.href == 'https://asossosaror.github.io/study-glossary/addPair.html') {
+            document.getElementById("submit-pair-btn-update").click();
+        }
     }
 });
 
@@ -479,4 +482,5 @@ function addNewPairs() {
     obj_allSets[headlineToShow] = setToChange;
     obj_allSets_serialized = JSON.stringify(obj_allSets);
     localStorage.setItem("obj_allSets", obj_allSets_serialized);
+    localStorage.setItem("set_to_add", {});
 }
